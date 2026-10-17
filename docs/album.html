@@ -177,33 +177,6 @@ main {
 .bandcamp-frame { height: 687px; }
 
 /* =========================================
-   TRACKLIST
-========================================= */
-.tracklist { padding-top: 5px; }
-.tracklist h2 {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1.45rem;
-    font-weight: 400;
-    margin: 0 0 20px;
-}
-.tracklist ol {
-    margin: 0;
-    padding-left: 28px;
-    color: #e5e0d8;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-.tracklist li {
-    padding: 8px 0 8px 8px;
-    border-bottom: 1px solid rgba(255,255,255,.12);
-}
-.tracklist li:last-child { border-bottom: none; }
-.tracklist li::marker {
-    color: var(--orange);
-    font-weight: 800;
-}
-
-/* =========================================
    LISTENING INFORMATION
 ========================================= */
 .listening-info {
@@ -257,6 +230,86 @@ main {
 }
 
 /* =========================================
+   LISTENING INFORMATION BESIDE PLAYER
+========================================= */
+.album-info .listening-info {
+    max-width: none;
+    margin: 0;
+    padding: 5px 0 18px;
+    text-align: left;
+}
+.album-info .music-links {
+    justify-content: flex-start;
+    gap: 26px;
+    padding: 4px 0 0;
+}
+
+
+/* =========================================
+   ALBUM BLURB
+========================================= */
+.story-section {
+    padding-bottom: 55px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.section-heading span {
+    font-size: .78rem;
+    color: var(--muted);
+}
+
+.album-blurb {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.02rem;
+    line-height: 1.85;
+    color: #eee7e9;
+}
+
+.album-blurb p {
+    margin: 0 0 24px;
+}
+
+.album-blurb a {
+    color: var(--orange);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(233,154,71,.6);
+    text-underline-offset: 3px;
+}
+
+.album-blurb a:hover {
+    color: #fff;
+    text-decoration-color: #fff;
+}
+
+@media (max-width: 560px) {
+    .album-blurb {
+        font-size: .98rem;
+    }
+
+    .section-heading span {
+        display: none;
+    }
+}
+
+/* =========================================
    CREDITS
 ========================================= */
 .credits {
@@ -297,7 +350,9 @@ footer {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-    .tracklist { padding-top: 0; }
+    .album-info .listening-info {
+        padding-top: 0;
+    }
 }
 @media (max-width: 560px) {
     .site-header { padding: 12px 20px; }
@@ -308,8 +363,6 @@ footer {
     .album-feature { padding: 16px; gap: 28px; }
     .spotify-frame { height: 380px; }
     .bandcamp-frame { height: 600px; }
-    .tracklist h2 { font-size: 1.25rem; }
-    .tracklist ol { font-size: .94rem; }
     .music-links {
         gap: 26px;
         padding-bottom: 40px;
@@ -363,9 +416,9 @@ footer {
 </section>
 
 <!-- =========================================
-     ALBUM PLAYER AND TRACKLIST
+     ALBUM PLAYER AND LISTENING INFORMATION
 ========================================= -->
-<section class="album-feature" aria-label="Album player and tracklist">
+<section class="album-feature" aria-label="Album player and listening information">
 
     <div class="album-player">
 
@@ -413,107 +466,205 @@ footer {
         </div>
     </div>
 
-    <!-- TRACKLIST -->
-    <div class="tracklist">
-        <h2>Tracklist</h2>
-        <ol>
-            <li>Kiss Me Out From The Cold</li>
-            <li>A Little Motion</li>
-            <li>Apart In the Winter Sun</li>
-            <li>Don't Let Met Go</li>
-            <li>La Valse</li>
-            <li>Feel Your Touch</li>
-            <li>Softly As A Dream</li>
-        </ol>
+    <!-- LISTENING INFORMATION AND LINKS -->
+    <div class="album-info">
+
+        <section class="listening-info">
+             <h2>SAJA Project [01]</h2>
+            <p>
+                We hope you love our music. You can listen to it
+                in all the usual places. But ideally, we would love
+                to see you on
+                <a
+                    href="https://sajaproject.bandcamp.com/album/saja-project-01"
+                    target="_blank"
+                    rel="noopener noreferrer">Bandcamp</a>.
+            </p>
+
+            <p>
+                You can also get a copy of our CD by contacting us
+                <a
+                    href="https://sajaproject.bandcamp.com/contact?b=742412910&amp;n=SAJA%20Project&amp;email=sally%40abovethemandrake.co.nz"
+                    target="_blank"
+                    rel="noopener noreferrer">here</a>.
+            </p>
+        </section>
+
+        <div class="music-links" aria-label="Listen on other platforms">
+
+            <a
+                href="https://open.spotify.com/album/1uM5lSf7tSYpBMCJ3xJLT3?si=VQGkIORrSPy_40YLU6ytnw"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="spotify"
+                title="Spotify"
+                aria-label="Listen on Spotify">
+                <i class="fab fa-spotify" aria-hidden="true"></i>
+            </a>
+
+            <a
+                href="https://sajaproject.bandcamp.com/album/saja-project-01"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bandcamp"
+                title="Bandcamp"
+                aria-label="Listen on Bandcamp">
+                <i class="fab fa-bandcamp" aria-hidden="true"></i>
+            </a>
+
+            <a
+                href="https://www.youtube.com/watch?v=iNaWayU7Jkc&amp;list=OLAK5uy_mAFncgSwvRT4ZnBA3nvJ7FU0uScwwXCIU"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube"
+                title="YouTube"
+                aria-label="Listen on YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+            </a>
+
+            <a
+                href="https://music.apple.com/au/album/kiss-me-out-from-the-cold/1860548408?i=1860548409"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="apple"
+                title="Apple Music"
+                aria-label="Listen on Apple Music">
+                <i class="fab fa-apple" aria-hidden="true"></i>
+            </a>
+
+            <a
+                href="https://tidal.com/album/534468002"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="tidal"
+                title="TIDAL"
+                aria-label="Listen on TIDAL">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <polygon points="3,7 7,3 11,7 7,11"/>
+                    <polygon points="13,7 17,3 21,7 17,11"/>
+                    <polygon points="8,12 12,8 16,12 12,16"/>
+                    <polygon points="3,17 7,13 11,17 7,21"/>
+                    <polygon points="13,17 17,13 21,17"/>
+                </svg>
+            </a>
+
+        </div>
+
     </div>
 
 </section>
 
-<!-- =========================================
-     LISTENING AND CD INFORMATION
-========================================= -->
-<section class="listening-info">
-    <p>
-        We hope you love our music. You can listen to it
-        in all the usual places. But ideally, we would love
-        to see you on
-        <a
-            href="https://sajaproject.bandcamp.com/album/saja-project-01"
-            target="_blank"
-            rel="noopener noreferrer">Bandcamp</a>.
-    </p>
 
-    <p>
-        You can also get a copy of our CD by contacting us
-        <a
-            href="https://sajaproject.bandcamp.com/contact?b=742412910&amp;n=SAJA%20Project&amp;email=sally%40abovethemandrake.co.nz"
-            target="_blank"
-            rel="noopener noreferrer">here</a>.
-    </p>
+<!-- =========================================
+     ABOUT THE ALBUM
+========================================= -->
+<section class="story-section" aria-label="About the album">
+
+    <div class="section-heading">
+        <!-- Optional section heading:
+        <h2>About the album</h2>
+        <span>The story behind SAJA Project [01]</span>
+        -->
+    </div>
+
+    <div class="album-blurb">
+
+        <!-- ADD YOUR ALBUM DESCRIPTION HERE -->
+
+      <p>
+            <i>Sally :</i> We had been wanting to make music with Sally since I was a teenager. Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+        </p>
+        <p>
+            <i>Jamie :</i> We had been wanting to make music with Sally since I was a teenager. Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+        </p>
+
+        <h4>Kiss Me Out From the Cold</h4>
+        <p>
+
+            <i>Jamie :</i> I wrote <b>Kiss Me Out</b> over the course of about 12 hours, a Friday through Saturday. Sometime music is just like that. It kind of started with a lyrical which is unusual for me.   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt <br/> <br/>So that final solo is really similiar to Pat Metheny synth sound, listetnig to the Offramp Album
+        </p>
+        <p> <i>Sally :</i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+        </p>
+
+          <h4>A Little Motion</h4>
+                  <p>
+
+            <i>Jamie :</i> I really love this song which Sally wrote in (?). There is something about the way the melody rubs up against the harmony.   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+        </p>
+        <p> <i>Sally :</i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit
+    esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui
+    officia deserunt mollit anim id est laborum.
+        </p>
+
+    </div>
+
 </section>
 
-<!-- =========================================
-     MUSIC PLATFORM LINKS
-========================================= -->
-<div class="music-links" aria-label="Listen on other platforms">
-
-    <a
-        href="https://open.spotify.com/album/1uM5lSf7tSYpBMCJ3xJLT3?si=VQGkIORrSPy_40YLU6ytnw"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="spotify"
-        title="Spotify"
-        aria-label="Listen on Spotify">
-        <i class="fab fa-spotify" aria-hidden="true"></i>
-    </a>
-
-    <a
-        href="https://sajaproject.bandcamp.com/album/saja-project-01"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="bandcamp"
-        title="Bandcamp"
-        aria-label="Listen on Bandcamp">
-        <i class="fab fa-bandcamp" aria-hidden="true"></i>
-    </a>
-
-    <a
-        href="https://www.youtube.com/watch?v=iNaWayU7Jkc&amp;list=OLAK5uy_mAFncgSwvRT4ZnBA3nvJ7FU0uScwwXCIU"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="youtube"
-        title="YouTube"
-        aria-label="Listen on YouTube">
-        <i class="fab fa-youtube" aria-hidden="true"></i>
-    </a>
-
-    <a
-        href="https://music.apple.com/au/album/kiss-me-out-from-the-cold/1860548408?i=1860548409"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="apple"
-        title="Apple Music"
-        aria-label="Listen on Apple Music">
-        <i class="fab fa-apple" aria-hidden="true"></i>
-    </a>
-
-    <a
-        href="https://tidal.com/album/534468002"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="tidal"
-        title="TIDAL"
-        aria-label="Listen on TIDAL">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <polygon points="3,7 7,3 11,7 7,11"/>
-            <polygon points="13,7 17,3 21,7 17,11"/>
-            <polygon points="8,12 12,8 16,12 12,16"/>
-            <polygon points="3,17 7,13 11,17 7,21"/>
-            <polygon points="13,17 17,13 21,17"/>
-        </svg>
-    </a>
-
-</div>
 
 <!-- =========================================
      CREDITS
