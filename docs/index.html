@@ -13,6 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
 :root {
     --ink: #151515;
     --paper: #f4f1eb;
@@ -56,24 +61,28 @@ img {
     object-fit: cover;
 }
 
-/* NAVIGATION */
+/* =========================================
+   DARK NAVIGATION
+========================================= */
 
-header {
+.site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
     padding: 14px max(24px, calc((100vw - 1160px)/2));
-    border-bottom: 1px solid #dcd5cc;
+    background: #171717;
+    color: #f4f1eb;
+    border-bottom: 1px solid #333;
 }
 
-header img {
+.site-header img {
     width: 52px;
     height: 52px;
     object-fit: contain;
 }
 
-nav {
+.site-nav {
     display: flex;
     gap: 26px;
     font-size: .78rem;
@@ -82,7 +91,10 @@ nav {
     text-transform: uppercase;
 }
 
-nav a:hover,
+.site-nav a:hover {
+    color: var(--orange);
+}
+
 .action:hover {
     color: #b36a28;
 }
@@ -93,18 +105,52 @@ main {
     padding: 0 24px;
 }
 
-/* COMPACT INTRO */
+/* =========================================
+   FULL MASTHEAD BACKGROUND
+
+   Starts directly under navigation.
+   Continues behind introduction and releases.
+   Darkens progressively towards the bottom.
+========================================= */
+
+.hero-background {
+    position: relative;
+    isolation: isolate;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,0.03) 0%,
+            rgba(0,0,0,0.08) 25%,
+            rgba(0,0,0,0.25) 50%,
+            rgba(0,0,0,0.60) 75%,
+            rgba(0,0,0,0.95) 100%
+        ),
+        url("assets/img/bg-masthead.jpg");
+
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    margin: 0 calc(50% - 50vw);
+    padding: 0 max(24px, calc((100vw - 1160px)/2));
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
 
 .intro {
     display: grid;
     grid-template-columns: minmax(180px, .8fr) 1.2fr;
     align-items: center;
     gap: 45px;
-    padding: 38px 0 42px;
+    padding: 65px 0;
 }
 
 .intro img {
     max-width: 390px;
+    object-fit: contain;
 }
 
 .intro p {
@@ -112,6 +158,7 @@ main {
     line-height: 1.5;
     max-width: 640px;
     margin: 0;
+    color: #171717;
 }
 
 .eyebrow {
@@ -123,12 +170,19 @@ main {
     margin: 0 0 12px;
 }
 
-/* FEATURED RELEASES */
+/* =========================================
+   FEATURED RELEASES
+========================================= */
+
+.release-section {
+    background: transparent;
+    padding: 35px 0 90px;
+}
 
 .release-grid {
     display: grid;
     grid-template-columns: 1.25fr 1fr;
-    gap: 16px;
+    gap: 20px;
 }
 
 .tile {
@@ -189,7 +243,9 @@ main {
     margin-bottom: 10px;
 }
 
-/* RELEASE BUTTONS */
+/* =========================================
+   RELEASE BUTTONS
+========================================= */
 
 .tile-actions {
     display: flex;
@@ -226,7 +282,9 @@ main {
     border-color: #fff;
 }
 
-/* PLAYER OVER ARTWORK */
+/* =========================================
+   PLAYER OVER ARTWORK
+========================================= */
 
 .tile-player {
     position: absolute;
@@ -366,7 +424,9 @@ main {
     text-decoration: underline;
 }
 
-/* SECONDARY PROJECTS */
+/* =========================================
+   SECONDARY PROJECTS
+========================================= */
 
 .section-line {
     display: flex;
@@ -426,7 +486,9 @@ main {
     margin-top: 12px;
 }
 
-/* FOOTER */
+/* =========================================
+   FOOTER
+========================================= */
 
 footer {
     background: #141414;
@@ -437,11 +499,13 @@ footer {
     margin-top: 12px;
 }
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 760px) {
 
-    header {
+    .site-header {
         padding: 12px 20px;
     }
 
@@ -449,14 +513,27 @@ footer {
         padding: 0 18px;
     }
 
+    .hero-background {
+        padding: 0 18px;
+        background-position: center top;
+    }
+
     .intro {
         grid-template-columns: 1fr;
         gap: 12px;
-        padding: 28px 0;
+        padding: 35px 0 40px;
     }
 
     .intro img {
         max-width: 240px;
+    }
+
+    .intro p {
+        color: #171717;
+    }
+
+    .release-section {
+        padding: 20px 0 55px;
     }
 
     .release-grid,
@@ -477,7 +554,7 @@ footer {
         gap: 12px;
     }
 
-    nav {
+    .site-nav {
         gap: 15px;
         font-size: .7rem;
     }
@@ -525,326 +602,337 @@ footer {
         transition: none;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-<header>
+<header class="site-header">
+
     <a href="index.html" aria-label="SAJA home">
         <img
             src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
             alt="SAJA symbol">
     </a>
 
-    <nav aria-label="Main navigation">
+    <nav class="site-nav" aria-label="Main navigation">
         <a href="album.html">Music</a>
         <a href="presskit.html">Press Kit</a>
         <a href="about.html">Contact</a>
     </nav>
+
 </header>
 
 <main>
 
-<!-- INTRODUCTION -->
+<!-- =========================================
+     HERO BACKGROUND
+========================================= -->
 
-<section class="intro" aria-label="Introduction">
+<div class="hero-background">
 
-    <img
-        src="assets/img/Saja_logo_long_orange.png"
-        alt="SAJA Project">
+    <!-- INTRODUCTION -->
 
-    <div>
-
-        <!--
-        <p class="eyebrow">
-            Australia × Aotearoa / New Zealand
-        </p>
-        -->
-
-        <p>
-            SAJA project is the collaborative creative powerhouse
-            between Jamie Gabriel (Aus) and Sally Jamila (NZ).
-            Their contrasting and highly diverse musical
-            backgrounds, spanning classical to electronica
-            and Indian to jazz-fusion, enrich their music
-            with constant innovation and surprising discoveries.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- FEATURED RELEASES -->
-
-<section class="release-grid" aria-label="Featured releases">
-
-    <!-- SUNDAY GIRL -->
-
-    <article class="tile feature-main" data-release="single">
+    <section class="intro" aria-label="Introduction">
 
         <img
-            src="assets/img/LeelaArt1.jpg"
-            alt="Sunday Girl artwork">
+            src="assets/img/Saja_logo_long_orange.png"
+            alt="SAJA Project">
 
-        <div class="tile-content">
-
-            <p class="eyebrow">New single · Out now</p>
-            <h2>Sunday Girl</h2>
-
-            <div class="tile-actions">
-
-                <button
-                    type="button"
-                    class="open-player"
-                    aria-expanded="false"
-                    aria-controls="single-player">
-                    ▶ Listen here
-                </button>
-
-                <a href="sunday-girl.html">
-                    Explore single ↗
-                </a>
-
-            </div>
-
+        <div>
+            <p>
+                SAJA project is the collaborative creative powerhouse
+                between Jamie Gabriel (Aus) and Sally Jamila (NZ).
+                Their contrasting and highly diverse musical
+                backgrounds, spanning classical to electronica
+                and Indian to jazz-fusion, enrich their music
+                with constant innovation and surprising discoveries.
+            </p>
         </div>
 
-        <!-- SUNDAY GIRL PLAYER OVERLAY -->
+    </section>
 
-        <div
-            class="tile-player"
-            id="single-player"
-            inert
-            aria-hidden="true">
+    <!-- =========================================
+         FEATURED RELEASES
+    ========================================= -->
 
-            <div class="player-head">
+    <section class="release-section" aria-label="Featured releases">
 
-                <h3>Sunday Girl</h3>
+        <div class="release-grid">
 
-                <button
-                    class="player-close"
-                    type="button"
-                    aria-label="Close Sunday Girl player">
-                    ✕ Close
-                </button>
+            <!-- SUNDAY GIRL -->
 
-            </div>
+            <article class="tile feature-main" data-release="single">
 
-            <div
-                class="player-tabs"
-                role="group"
-                aria-label="Sunday Girl listening platform">
+                <img
+                    src="assets/img/LeelaArt1.jpg"
+                    alt="Sunday Girl artwork">
 
-                <button
-                    type="button"
-                    class="player-tab active"
-                    data-platform="spotify"
-                    aria-pressed="true">
-                    Spotify
-                </button>
+                <div class="tile-content">
 
-                <button
-                    type="button"
-                    class="player-tab"
-                    data-platform="bandcamp"
-                    aria-pressed="false">
-                    Bandcamp
-                </button>
+                    <p class="eyebrow">New single · Out now</p>
+                    <h2>Sunday Girl</h2>
 
-            </div>
+                    <div class="tile-actions">
 
-            <div class="player-body">
+                        <button
+                            type="button"
+                            class="open-player"
+                            aria-expanded="false"
+                            aria-controls="single-player">
+                            ▶ Listen here
+                        </button>
 
-                <!-- SPOTIFY SINGLE -->
-
-                <div
-                    class="player-pane active"
-                    data-pane="spotify">
-
-                    <iframe
-                        class="spotify-frame"
-                        title="Sunday Girl on Spotify"
-                        data-src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
-                        loading="lazy"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                    </iframe>
-
-                </div>
-
-                <!-- BANDCAMP SINGLE -->
-
-                <div
-                    class="player-pane"
-                    data-pane="bandcamp">
-
-                    <div class="bandcamp-link">
-
-                        <span>
-                            Listen to and download
-                            <em>Sunday Girl</em> on Bandcamp
-                        </span>
-
-                        <a
-                            href="https://sajaproject.bandcamp.com/track/sunday-girl"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Open Bandcamp ↗
+                        <a href="sunday-girl.html">
+                            Explore single ↗
                         </a>
 
                     </div>
 
                 </div>
 
-            </div>
-
-            <div class="player-foot">
-                <a href="sunday-girl.html">
-                    Read the story behind the song ↗
-                </a>
-            </div>
-
-        </div>
-
-    </article>
-
-    <!-- ALBUM -->
-
-    <article class="tile feature-secondary" data-release="album">
-
-        <img
-            src="assets/img/AlbumCover.jpg"
-            alt="SAJA Project 01 album artwork">
-
-        <div class="tile-content">
-
-            <p class="eyebrow">Debut album</p>
-            <h2>SAJA Project [01]</h2>
-
-            <div class="tile-actions">
-
-                <button
-                    type="button"
-                    class="open-player"
-                    aria-expanded="false"
-                    aria-controls="album-player">
-                    ▶ Listen here
-                </button>
-
-                <a href="album.html">
-                    Explore album ↗
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- ALBUM PLAYER OVERLAY -->
-
-        <div
-            class="tile-player"
-            id="album-player"
-            inert
-            aria-hidden="true">
-
-            <div class="player-head">
-
-                <h3>SAJA Project [01]</h3>
-
-                <button
-                    class="player-close"
-                    type="button"
-                    aria-label="Close album player">
-                    ✕ Close
-                </button>
-
-            </div>
-
-            <div
-                class="player-tabs"
-                role="group"
-                aria-label="Album listening platform">
-
-                <button
-                    type="button"
-                    class="player-tab active"
-                    data-platform="spotify"
-                    aria-pressed="true">
-                    Spotify
-                </button>
-
-                <button
-                    type="button"
-                    class="player-tab"
-                    data-platform="bandcamp"
-                    aria-pressed="false">
-                    Bandcamp
-                </button>
-
-            </div>
-
-            <div class="player-body">
-
-                <!-- SPOTIFY ALBUM -->
+                <!-- SUNDAY GIRL PLAYER -->
 
                 <div
-                    class="player-pane active"
-                    data-pane="spotify">
+                    class="tile-player"
+                    id="single-player"
+                    inert
+                    aria-hidden="true">
 
-                    <iframe
-                        class="spotify-frame"
-                        title="SAJA Project 01 on Spotify"
-                        data-src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
-                        loading="lazy"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                    </iframe>
+                    <div class="player-head">
+
+                        <h3>Sunday Girl</h3>
+
+                        <button
+                            class="player-close"
+                            type="button"
+                            aria-label="Close Sunday Girl player">
+                            ✕ Close
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="player-tabs"
+                        role="group"
+                        aria-label="Sunday Girl listening platform">
+
+                        <button
+                            type="button"
+                            class="player-tab active"
+                            data-platform="spotify"
+                            aria-pressed="true">
+                            Spotify
+                        </button>
+
+                        <button
+                            type="button"
+                            class="player-tab"
+                            data-platform="bandcamp"
+                            aria-pressed="false">
+                            Bandcamp
+                        </button>
+
+                    </div>
+
+                    <div class="player-body">
+
+                        <!-- SPOTIFY SINGLE -->
+
+                        <div
+                            class="player-pane active"
+                            data-pane="spotify">
+
+                            <iframe
+                                class="spotify-frame"
+                                title="Sunday Girl on Spotify"
+                                data-src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
+                                loading="lazy"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                            </iframe>
+
+                        </div>
+
+                        <!-- BANDCAMP SINGLE -->
+
+                        <div
+                            class="player-pane"
+                            data-pane="bandcamp">
+
+                            <div class="bandcamp-link">
+
+                                <span>
+                                    Listen to and download
+                                    <em>Sunday Girl</em> on Bandcamp
+                                </span>
+
+                                <a
+                                    href="https://sajaproject.bandcamp.com/track/sunday-girl"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    Open Bandcamp ↗
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="player-foot">
+                        <a href="sunday-girl.html">
+                            Read the story behind the song ↗
+                        </a>
+                    </div>
 
                 </div>
 
-                <!-- BANDCAMP ALBUM -->
+            </article>
 
-                <div
-                    class="player-pane"
-                    data-pane="bandcamp">
+            <!-- =========================================
+                 ALBUM
+            ========================================= -->
 
-                    <iframe
-                        class="bandcamp-frame"
-                        title="SAJA Project 01 on Bandcamp"
-                        data-src="https://bandcamp.com/EmbeddedPlayer/album=2354495077/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
-                        loading="lazy">
-                    </iframe>
+            <article class="tile feature-secondary" data-release="album">
+
+                <img
+                    src="assets/img/AlbumCover.jpg"
+                    alt="SAJA Project 01 album artwork">
+
+                <div class="tile-content">
+
+                    <p class="eyebrow">Debut album</p>
+                    <h2>SAJA Project [01]</h2>
+
+                    <div class="tile-actions">
+
+                        <button
+                            type="button"
+                            class="open-player"
+                            aria-expanded="false"
+                            aria-controls="album-player">
+                            ▶ Listen here
+                        </button>
+
+                        <a href="album.html">
+                            Explore album ↗
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
+                <!-- ALBUM PLAYER -->
 
-            <div class="player-foot">
+                <div
+                    class="tile-player"
+                    id="album-player"
+                    inert
+                    aria-hidden="true">
 
-                <a
-                    href="https://sajaproject.bandcamp.com/album/saja-project-01"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Download on Bandcamp ↗
-                </a>
+                    <div class="player-head">
 
-            </div>
+                        <h3>SAJA Project [01]</h3>
+
+                        <button
+                            class="player-close"
+                            type="button"
+                            aria-label="Close album player">
+                            ✕ Close
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="player-tabs"
+                        role="group"
+                        aria-label="Album listening platform">
+
+                        <button
+                            type="button"
+                            class="player-tab active"
+                            data-platform="spotify"
+                            aria-pressed="true">
+                            Spotify
+                        </button>
+
+                        <button
+                            type="button"
+                            class="player-tab"
+                            data-platform="bandcamp"
+                            aria-pressed="false">
+                            Bandcamp
+                        </button>
+
+                    </div>
+
+                    <div class="player-body">
+
+                        <!-- SPOTIFY ALBUM -->
+
+                        <div
+                            class="player-pane active"
+                            data-pane="spotify">
+
+                            <iframe
+                                class="spotify-frame"
+                                title="SAJA Project 01 on Spotify"
+                                data-src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
+                                loading="lazy"
+                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                            </iframe>
+
+                        </div>
+
+                        <!-- BANDCAMP ALBUM -->
+
+                        <div
+                            class="player-pane"
+                            data-pane="bandcamp">
+
+                            <iframe
+                                class="bandcamp-frame"
+                                title="SAJA Project 01 on Bandcamp"
+                                data-src="https://bandcamp.com/EmbeddedPlayer/album=2354495077/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+                                loading="lazy">
+                            </iframe>
+
+                        </div>
+
+                    </div>
+
+                    <div class="player-foot">
+
+                        <a
+                            href="https://sajaproject.bandcamp.com/album/saja-project-01"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Download on Bandcamp ↗
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
 
         </div>
 
-    </article>
+    </section>
 
-</section>
-
-<!-- OTHER PROJECTS -->
-
-<div class="section-line">
-<!--     <h2>Beyond the recordings</h2>
-    <span>
-        Performance · Experimentation · Collaboration
-    </span> -->
 </div>
+<!-- END HERO BACKGROUND -->
+
+<!-- =========================================
+     OTHER PROJECTS
+========================================= -->
+
+<div class="section-line"></div>
 
 <section class="stories" aria-label="Projects">
 
@@ -901,27 +989,20 @@ footer {
 
 </section>
 
-<!--
-<section class="closing">
-    <strong>
-        Curious where the music goes next?
-    </strong>
-    <a href="album.html">
-        Explore the recordings ↗
-    </a>
-</section>
--->
-
 </main>
 
-<!-- FOOTER -->
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
     © SAJA 2026 &nbsp;·&nbsp;
     Photography by Sabine Mignault
 </footer>
 
-<!-- PLAYER JAVASCRIPT -->
+<!-- =========================================
+     PLAYER JAVASCRIPT
+========================================= -->
 
 <script>
 (function () {
