@@ -1,24 +1,37 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<meta name="description" content="SAJA Project press kit — artist biography, music, photographs and stage requirements.">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description"
+      content="SAJA Project press kit — artist biography, music, photographs and stage requirements.">
+
 <title>SAJA Project — Press Kit</title>
 
 <link rel="icon" href="assets/favicon.ico">
 
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap"
+    rel="stylesheet">
 
 <style>
+
+/* =========================================
+   GLOBAL
+========================================= */
+
 :root {
     --ink: #151515;
     --paper: #f4f1eb;
     --orange: #e99a47;
     --muted: #746f69;
     --line: #d6cec3;
+    --nav: #26161A;
+    --footer: #0A0908;
 }
 
 * {
@@ -33,7 +46,7 @@ body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: Nunito, sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 a {
@@ -52,39 +65,52 @@ img {
     object-fit: cover;
 }
 
-/* NAVIGATION */
+/* =========================================
+   NAVIGATION — MATCHES HOMEPAGE
+========================================= */
 
-header {
+.site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    padding: 14px max(24px, calc((100vw - 1160px)/2));
-    border-bottom: 1px solid #dcd5cc;
+
+    padding: 14px max(24px, calc((100vw - 1160px) / 2));
+
+    background: var(--nav);
+    color: var(--paper);
+
+    border-bottom: 1px solid #3b342a;
 }
 
-header img {
+.site-header img {
     width: 52px;
     height: 52px;
     object-fit: contain;
 }
 
-nav {
+.site-nav {
     display: flex;
     gap: 26px;
+
     font-size: .78rem;
     font-weight: 800;
     letter-spacing: .12em;
     text-transform: uppercase;
 }
 
-nav a:hover {
-    color: #b36a28;
+.site-nav a {
+    transition: color .2s ease;
 }
 
-nav a[aria-current="page"] {
-    color: #a45e24;
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+    color: var(--orange);
 }
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
 main {
     max-width: 1160px;
@@ -95,20 +121,22 @@ main {
 .eyebrow {
     font-size: .7rem;
     text-transform: uppercase;
-    letter-spacing: .22em;
+    letter-spacing: .18em;
     font-weight: 800;
     color: #a45e24;
     margin: 0 0 12px;
 }
 
-/* HERO */
+/* =========================================
+   PRESS KIT HERO
+========================================= */
 
 .hero {
     display: grid;
     grid-template-columns: .83fr 1.17fr;
     gap: 38px;
     align-items: center;
-    padding: 38px 0 32px;
+    padding: 48px 0 44px;
 }
 
 .hero-copy {
@@ -117,18 +145,26 @@ main {
 
 .hero h1 {
     font-family: 'Varela Round', sans-serif;
-    font-size: clamp(2.8rem, 6vw, 5.6rem);
+    font-size: clamp(2.7rem, 5.5vw, 5rem);
     font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -.055em;
-    margin: 0 0 18px;
-}
-
-.hero p {
-    font-size: 1.12rem;
-    line-height: 1.65;
+    line-height: 1.08;
+    letter-spacing: -.05em;
     margin: 0 0 22px;
 }
+
+.hero h1 span {
+    color: var(--orange);
+}
+
+.hero-copy > p:not(.eyebrow) {
+    font-size: clamp(1rem, 1.4vw, 1.12rem);
+    line-height: 1.65;
+    margin: 0 0 24px;
+}
+
+/* =========================================
+   HERO PHOTOGRAPH
+========================================= */
 
 .hero-photo {
     position: relative;
@@ -147,10 +183,12 @@ main {
     content: "";
     position: absolute;
     inset: 55% 0 0;
+
     background: linear-gradient(
         transparent,
-        rgba(0,0,0,.65)
+        rgba(0,0,0,.7)
     );
+
     pointer-events: none;
 }
 
@@ -159,6 +197,7 @@ main {
     z-index: 1;
     bottom: 18px;
     left: 22px;
+
     color: #fff;
     font-size: .75rem;
     letter-spacing: .14em;
@@ -166,7 +205,9 @@ main {
     font-weight: 800;
 }
 
-/* QUICK LINKS */
+/* =========================================
+   QUICK LINKS
+========================================= */
 
 .quicklinks {
     display: flex;
@@ -179,18 +220,25 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     padding: 10px 15px;
-    border: 1px solid var(--ink);
-    font-size: .78rem;
+
+    border: 1px solid var(--nav);
+
+    font-size: .76rem;
     letter-spacing: .07em;
     font-weight: 800;
     text-transform: uppercase;
-    transition: background .2s, color .2s;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
 }
 
 .quicklinks a:first-child,
 .stage-button {
-    background: var(--ink);
+    background: var(--nav);
     color: #fff;
 }
 
@@ -201,13 +249,16 @@ main {
     color: var(--ink);
 }
 
-/* SECTION HEADINGS */
+/* =========================================
+   SECTION HEADINGS
+========================================= */
 
 .section-heading {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 20px;
+
     border-top: 1px solid var(--line);
     padding-top: 16px;
     margin-bottom: 24px;
@@ -225,10 +276,12 @@ main {
     color: var(--muted);
 }
 
-/* BIOGRAPHY */
+/* =========================================
+   BIOGRAPHY
+========================================= */
 
 .bio {
-    padding: 26px 0 44px;
+    padding: 12px 0 48px;
 }
 
 .bio-grid {
@@ -244,21 +297,30 @@ main {
     font-weight: 700;
 }
 
-/* ALBUM */
+/* =========================================
+   ALBUM FEATURE
+========================================= */
 
 .album {
     display: grid;
     grid-template-columns: 280px 1fr;
     gap: 34px;
     align-items: center;
-    padding: 24px;
-    background: #181818;
-    color: #fff;
+
+    padding: 26px;
+
+    background: #171313;
+    color: var(--paper);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+
     margin-bottom: 54px;
 }
 
 .album img {
     aspect-ratio: 1;
+    border-radius: 3px;
 }
 
 .album .eyebrow {
@@ -272,9 +334,9 @@ main {
     margin: 0 0 14px;
 }
 
-.album p {
+.album p:not(.eyebrow) {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.75;
     margin: 0 0 20px;
 }
 
@@ -282,14 +344,23 @@ main {
     display: inline-block;
     border-bottom: 1px solid var(--orange);
     padding-bottom: 4px;
+
     color: var(--orange);
+
     font-size: .82rem;
     font-weight: 800;
     letter-spacing: .08em;
     text-transform: uppercase;
 }
 
-/* PHOTO GALLERY */
+.album a:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* =========================================
+   PHOTO GALLERY
+========================================= */
 
 .gallery {
     padding-bottom: 52px;
@@ -322,7 +393,7 @@ main {
 
 .photo-grid img {
     height: 100%;
-    transition: transform .4s;
+    transition: transform .4s ease;
 }
 
 .photo-grid a:hover img {
@@ -335,13 +406,16 @@ main {
     margin: 13px 0 0;
 }
 
-/* STAGE REQUIREMENTS */
+/* =========================================
+   STAGE REQUIREMENTS
+========================================= */
 
 .stage {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+
     padding: 26px 0 46px;
     border-top: 1px solid var(--line);
 }
@@ -360,17 +434,28 @@ main {
     max-width: 620px;
 }
 
-/* FOOTER */
+.stage-button {
+    flex-shrink: 0;
+}
+
+/* =========================================
+   FOOTER — MATCHES HOMEPAGE
+========================================= */
 
 footer {
-    background: #141414;
-    color: #a9a39d;
+    background: var(--footer);
+    color: var(--paper);
+
     text-align: center;
     padding: 26px;
     font-size: .75rem;
+
+    margin-top: 0;
 }
 
-/* RESPONSIVE */
+/* =========================================
+   TABLET
+========================================= */
 
 @media (max-width: 800px) {
 
@@ -402,15 +487,20 @@ footer {
         align-items: flex-start;
         flex-direction: column;
     }
+
 }
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media (max-width: 560px) {
 
-    header {
+    .site-header {
         padding: 12px 20px;
     }
 
-    nav {
+    .site-nav {
         gap: 15px;
         font-size: .7rem;
     }
@@ -420,7 +510,7 @@ footer {
     }
 
     .hero {
-        padding: 28px 0;
+        padding: 28px 0 34px;
     }
 
     .hero h1 {
@@ -433,6 +523,7 @@ footer {
 
     .album {
         grid-template-columns: 1fr;
+        padding: 18px;
     }
 
     .album img {
@@ -456,7 +547,16 @@ footer {
     .section-heading span {
         display: none;
     }
+
+    .stage-button {
+        flex-shrink: 1;
+    }
+
 }
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -464,36 +564,57 @@ footer {
         scroll-behavior: auto;
     }
 
+    .site-nav a,
+    .quicklinks a,
+    .stage-button,
     .photo-grid img {
         transition: none;
     }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-<header>
+<header class="site-header">
 
-    <a href="index.html" aria-label="SAJA home">
+    <a href="index.html" aria-label="SAJA Project home">
+
         <img
             src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
-            alt="SAJA symbol">
+            alt="SAJA Project symbol">
+
     </a>
 
-    <nav aria-label="Main navigation">
-        <a href="album.html">Music</a>
-        <a href="presskit.html" aria-current="page">Press Kit</a>
-        <a href="about.html">Contact</a>
+    <nav class="site-nav" aria-label="Main navigation">
+
+        <!-- <a href="album.html">Music</a> -->
+
+        <a href="presskit.html" aria-current="page">
+            Press Kit
+        </a>
+
+                 <a href="https://bandcamp.com/contact?b=742412910&n=SAJA+Project&email=sally%40abovethemandrake.co.nz"
+                target="_blank"
+                class="contact-link"
+            >Contact</a>
+
     </nav>
 
 </header>
 
 <main>
 
-<!-- HERO -->
+<!-- =========================================
+     HERO
+========================================= -->
 
 <section class="hero" aria-labelledby="page-title">
 
@@ -504,17 +625,10 @@ footer {
         </p>
 
         <h1 id="page-title">
-            Press Kit<span style="color:#e99a47">.</span>
+            Press Kit<span>.</span>
         </h1>
 
-        <p>
-            SAJA project is the collaborative creative powerhouse
-            between Jamie Gabriel (Aus) and Sally Jamila (NZ).
-            Their contrasting and highly diverse musical backgrounds,
-            spanning classical to electronica and Indian to jazz-fusion,
-            enrich their music with constant innovation and surprising
-            discoveries.
-        </p>
+
 
         <div class="quicklinks">
 
@@ -540,17 +654,20 @@ footer {
             src="assets/img/bio/ph8.jpeg"
             alt="SAJA Project press photograph">
 
-        <span>
-            SAJA Project · Australia / Aotearoa
-        </span>
+     
 
     </div>
 
 </section>
 
-<!-- BIOGRAPHY -->
+<!-- =========================================
+     BIOGRAPHY
+========================================= -->
 
-<section class="bio" id="biography" aria-labelledby="bio-title">
+<section
+    class="bio"
+    id="biography"
+    aria-labelledby="bio-title">
 
     <div class="section-heading">
 
@@ -558,12 +675,23 @@ footer {
             About SAJA Project
         </h2>
 
-        <span>Artist biography</span>
+        <span>
+            Artist biography
+        </span>
 
     </div>
 
     <div class="bio-grid">
 
+
+        <p>
+            SAJA project is the collaborative creative powerhouse
+            between Jamie Gabriel (Aus) and Sally Jamila (NZ).
+            Their contrasting and highly diverse musical backgrounds,
+            spanning classical to electronica and Indian to jazz-fusion,
+            enrich their music with constant innovation and surprising
+            discoveries.
+        </p>
         <p>
             Rather than settling into a single genre, their music
             thrives at the point where their influences intersect.
@@ -582,29 +710,6 @@ footer {
             lush vocal layers, looping and improvisation into an
             immersive alchemy of sonic landscapes.
         </p>
-
-    </div>
-
-</section>
-
-<!-- ALBUM FEATURE -->
-
-<section class="album" aria-labelledby="album-title">
-
-    <img
-        src="assets/img/AlbumCover.jpg"
-        alt="SAJA Project 01 album cover">
-
-    <div>
-
-        <p class="eyebrow">
-            Debut studio album
-        </p>
-
-        <h2 id="album-title">
-            SAJA Project 01
-        </h2>
-
         <p>
             SAJA Project 01 is their debut studio album, written,
             recorded and produced in New Zealand and Australia over
@@ -621,15 +726,19 @@ footer {
             Jean-Michel Jarre on Broadway”.
         </p>
 
-        <a href="album.html">
-            Listen to the album ↗
-        </a>
-
     </div>
 
 </section>
 
-<!-- PRESS PHOTOGRAPHS -->
+<!-- =========================================
+     ALBUM FEATURE
+========================================= -->
+
+
+
+<!-- =========================================
+     PRESS PHOTOGRAPHS
+========================================= -->
 
 <section
     class="gallery"
@@ -650,40 +759,112 @@ footer {
 
     <div class="photo-grid">
 
-        <a href="assets/img/bio/ph2.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph2.jpeg" alt="SAJA Project press photograph 2" loading="lazy">
+        <a
+            href="assets/img/bio/ph2.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph2.jpeg"
+                alt="SAJA Project press photograph 2"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph3.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph3.jpeg" alt="SAJA Project press photograph 3" loading="lazy">
+        <a
+            href="assets/img/bio/ph3.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph3.jpeg"
+                alt="SAJA Project press photograph 3"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph4.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph4.jpeg" alt="SAJA Project press photograph 4" loading="lazy">
+        <a
+            href="assets/img/bio/ph4.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph4.jpeg"
+                alt="SAJA Project press photograph 4"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph5.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph5.jpeg" alt="SAJA Project press photograph 5" loading="lazy">
+        <a
+            href="assets/img/bio/ph5.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph5.jpeg"
+                alt="SAJA Project press photograph 5"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph6.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph6.jpeg" alt="SAJA Project press photograph 6" loading="lazy">
+        <a
+            href="assets/img/bio/ph6.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph6.jpeg"
+                alt="SAJA Project press photograph 6"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph7.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph7.jpeg" alt="SAJA Project press photograph 7" loading="lazy">
+        <a
+            href="assets/img/bio/ph7.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph7.jpeg"
+                alt="SAJA Project press photograph 7"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph8.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph8.jpeg" alt="SAJA Project press photograph 8" loading="lazy">
+        <a
+            href="assets/img/bio/ph8.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph8.jpeg"
+                alt="SAJA Project press photograph 8"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph9.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph9.jpeg" alt="SAJA Project press photograph 9" loading="lazy">
+        <a
+            href="assets/img/bio/ph9.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph9.jpeg"
+                alt="SAJA Project press photograph 9"
+                loading="lazy">
+
         </a>
 
-        <a href="assets/img/bio/ph10.jpeg" target="_blank" rel="noopener">
-            <img src="assets/img/bio/ph10.jpeg" alt="SAJA Project press photograph 10" loading="lazy">
+        <a
+            href="assets/img/bio/ph10.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/bio/ph10.jpeg"
+                alt="SAJA Project press photograph 10"
+                loading="lazy">
+
         </a>
 
     </div>
@@ -696,9 +877,14 @@ footer {
 
 </section>
 
-<!-- STAGE REQUIREMENTS -->
+<!-- =========================================
+     STAGE REQUIREMENTS
+========================================= -->
 
-<section class="stage" id="stage" aria-labelledby="stage-title">
+<section
+    class="stage"
+    id="stage"
+    aria-labelledby="stage-title">
 
     <div>
 
@@ -714,25 +900,31 @@ footer {
 
     </div>
 
-    <!-- Update this href when your stage requirements
-         document or page is ready. -->
+    <!-- Update href when stage requirements page is ready -->
 
     <a
         class="stage-button"
         href="stage-requirements.html">
+
         View stage requirements ↗
+
     </a>
 
 </section>
 
 </main>
 
-<!-- FOOTER -->
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
+
     © SAJA 2026 &nbsp;·&nbsp;
     Photography by Sabine Mignault
+
 </footer>
 
 </body>
+
 </html>

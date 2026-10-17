@@ -1,651 +1,789 @@
-<!DOCTYPE html>
 
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description"
+      content="Sunday Girl by SAJA Project — listen to the single, read its story and explore the lyrics and artwork.">
 
 <title>SAJA Project — Sunday Girl</title>
 
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" href="assets/favicon.ico">
 
-<!-- Font Awesome icons -->
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap"
+    rel="stylesheet">
 
-<!-- Google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
-
-<!-- Core theme CSS -->
-<link href="css/styles.css" rel="stylesheet" />
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-    body {
-        font-family: 'Nunito', sans-serif;
-        color: #fff;
-    }
+/* =========================================
+   GLOBAL
+========================================= */
 
-    /* -----------------------------------
-       Main sections
-    ----------------------------------- */
+:root {
+    --ink: #151515;
+    --paper: #f4f1eb;
+    --orange: #e99a47;
+    --muted: #746f69;
+    --line: #d6cec3;
+    --nav: #26161A;
+    --footer: #0A0908;
+}
 
-    .about-section {
-        padding: 7rem 0 5rem;
-        background-color: #111;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    .projects-section {
-        padding: 4rem 0;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .bg-black {
-        background-color: #111 !important;
-    }
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+}
 
-    .footer {
-        padding: 2rem 0;
-    }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
+button {
+    font: inherit;
+}
 
-    /* -----------------------------------
-       Single heading
-    ----------------------------------- */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
 
-    .single-heading {
-        margin-bottom: 3.5rem;
-    }
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
 
+/* =========================================
+   NAVIGATION — NEW SITE STANDARD
+========================================= */
 
-    /* -----------------------------------
-       Player / title / streaming block
-    ----------------------------------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 14px max(24px, calc((100vw - 1160px) / 2));
+
+    background: var(--nav);
+    color: var(--paper);
+
+    border-bottom: 1px solid #3b342a;
+}
+
+.site-header img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.site-nav {
+    display: flex;
+    gap: 26px;
+
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    transition: color .2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--orange);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    max-width: 1160px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.eyebrow {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-weight: 800;
+    color: #a45e24;
+    margin: 0 0 12px;
+}
+
+/* =========================================
+   SINGLE INTRODUCTION
+========================================= */
+
+.single-intro {
+    padding: 46px 0 34px;
+}
+
+.single-intro h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    margin: 0;
+}
+
+.single-intro h1 span {
+    color: var(--orange);
+}
+
+/* =========================================
+   SINGLE FEATURE
+========================================= */
+
+.single-feature {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 42px;
+    align-items: start;
+
+    padding: 30px;
+
+    background: #171313;
+    color: var(--paper);
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px;
+
+    margin-bottom: 54px;
+}
+
+/* =========================================
+   PLAYER
+========================================= */
+
+.single-player {
+    min-width: 0;
+    width: 100%;
+}
+
+.player-tabs {
+    display: flex;
+    gap: 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,.25);
+
+    margin-bottom: 18px;
+}
+
+.player-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    color: #aaa;
+
+    padding: 9px 0 11px;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: .85rem;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.player-tab.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+.player-tab:hover {
+    color: #fff;
+}
+
+.player-panel {
+    display: none;
+}
+
+.player-panel.active {
+    display: block;
+}
+
+.spotify-frame {
+    display: block;
+    width: 100%;
+    height: 352px;
+    border: 0;
+    border-radius: 12px;
+}
+
+/* =========================================
+   BANDCAMP PANEL
+========================================= */
+
+.bandcamp-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 352px;
+    padding: 32px;
+
+    background: #fff;
+    color: var(--ink);
+
+    border-radius: 12px;
+    text-align: center;
+}
+
+.bandcamp-panel a {
+    color: #97501e;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.7;
+    text-decoration: underline;
+}
+
+.bandcamp-panel a:hover {
+    color: var(--ink);
+}
+
+/* =========================================
+   SINGLE INFORMATION
+========================================= */
+
+.single-info {
+    padding-top: 8px;
+}
+
+.single-info h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    margin: 0 0 14px;
+}
+
+.single-info > p {
+    color: #e5e0d8;
+    font-size: 1rem;
+    margin: 0 0 30px;
+}
+
+.streaming-info {
+    color: #d6d0c9;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.streaming-info a {
+    color: var(--orange);
+    font-weight: 800;
+    border-bottom: 1px solid currentColor;
+}
+
+.streaming-info a:hover {
+    color: #fff;
+}
+
+/* =========================================
+   MUSIC PLATFORM LINKS
+========================================= */
+
+.music-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 26px;
+
+    margin-top: 30px;
+}
+
+.music-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2rem;
+    color: var(--paper);
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.music-links a:hover {
+    transform: translateY(-3px);
+}
+
+.music-links a.spotify:hover {
+    color: #1db954;
+}
+
+.music-links a.bandcamp:hover {
+    color: #629aa9;
+}
+
+.music-links a.youtube:hover {
+    color: #ff0000;
+}
+
+.music-links a.apple:hover {
+    color: #a2aaad;
+}
+
+.music-links a.tidal:hover {
+    color: #00ffff;
+}
+
+.music-links a.tidal svg {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    margin-bottom: 28px;
+}
+
+.section-heading h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.section-heading span {
+    font-size: .78rem;
+    color: var(--muted);
+}
+
+/* =========================================
+   ABOUT THE SONG
+========================================= */
+
+.story-section {
+    padding-bottom: 55px;
+}
+
+.song-blurb {
+    max-width: 850px;
+    margin: 0 auto;
+
+    font-size: 1.02rem;
+    line-height: 1.85;
+}
+
+.song-blurb p {
+    margin: 0 0 24px;
+}
+
+.song-blurb a {
+    color: #97501e;
+    font-weight: 700;
+
+    text-decoration: underline;
+    text-decoration-color: rgba(151,80,30,.5);
+    text-underline-offset: 3px;
+}
+
+.song-blurb a:hover {
+    color: var(--ink);
+    text-decoration-color: var(--ink);
+}
+
+.song-signature {
+    text-align: right;
+    margin-top: 32px !important;
+    font-weight: 700;
+}
+
+/* =========================================
+   LYRICS SECTION
+========================================= */
+
+.lyrics-section {
+    padding-bottom: 58px;
+}
+
+.lyrics-artwork {
+    position: relative;
+
+    max-width: 850px;
+    width: 100%;
+    margin: 0 auto;
+
+    overflow: hidden;
+    border-radius: 8px;
+
+    background-image: url('assets/img/LeelaArt2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-color: #211b1c;
+}
+
+.lyrics-artwork::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,.28);
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lyrics-overlay {
+    position: relative;
+    z-index: 1;
+
+    padding: 5rem 5rem 5.5rem;
+
+    color: #fff;
+    text-align: center;
+}
+
+.lyrics-heading {
+    font-family: 'Varela Round', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 400;
+
+    color: #fff;
+    margin: 0 0 3rem;
+}
+
+.lyrics {
+    line-height: 1.9;
+    color: #fff;
+
+    text-align: center;
+    text-shadow: 0 1px 5px rgba(0,0,0,.7);
+}
+
+.lyrics p {
+    margin: 0 0 2rem;
+}
+
+.lyrics strong {
+    font-weight: 700;
+}
+
+.lyrics .chorus {
+    margin: 2.75rem 0;
+}
+
+.lyrics .final-lines {
+    margin-top: 2.75rem;
+    margin-bottom: 0;
+}
+
+/* =========================================
+   CREDITS
+========================================= */
+
+.credits {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 46px;
+
+    text-align: center;
+}
+
+.credits h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0 0 18px;
+}
+
+.credits p {
+    color: #625c55;
+    font-size: .9rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: var(--footer);
+    color: var(--paper);
+
+    text-align: center;
+    padding: 26px;
+    font-size: .75rem;
+
+    margin-top: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
 
     .single-feature {
-        margin-bottom: 5rem;
-    }
-
-    .single-player {
-        width: 100%;
-        text-align: left;
-    }
-
-    .player-tabs {
-        display: flex;
-        gap: 18px;
-        margin-bottom: 12px;
-        align-items: center;
-    }
-
-    .player-tab {
-        padding: 0 0 3px;
-        border: 0 !important;
-        border-bottom: 1px solid transparent !important;
-        background: none;
-        color: rgba(255,255,255,0.5);
-        font-family: 'Nunito', sans-serif;
-        font-size: 0.82rem;
-        cursor: pointer;
-    }
-
-    .player-tab:hover {
-        color: #fff;
-    }
-
-    .player-tab.active {
-        color: #fff;
-        border-bottom-color: rgba(255,255,255,0.7) !important;
-    }
-
-    .player-content {
-        position: relative;
-        width: 100%;
-    }
-
-    .player-panel {
-        width: 100%;
-        display: none;
-    }
-
-    .player-panel.active {
-        display: block;
-    }
-
-    .spotify-frame {
-        display: block;
-        width: 100%;
-        height: 352px;
-        border: 0;
-        border-radius: 12px;
-    }
-
-    .bandcamp-panel {
-        min-height: 352px;
-        padding: 2rem;
-        background: #fff;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .bandcamp-panel a {
-        color: #111;
-        text-decoration: none;
-        font-size: 1rem;
-    }
-
-    .bandcamp-panel a:hover {
-        text-decoration: underline;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .single-info {
-        padding-left: 2rem;
-        text-align: center;
+        padding-top: 0;
+    }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+    .site-header {
+        padding: 12px 20px;
+    }
+
+    .site-nav {
+        gap: 15px;
+        font-size: .7rem;
+    }
+
+    main {
+        padding: 0 18px;
+    }
+
+    .single-intro {
+        padding: 30px 0 24px;
+    }
+
+    .single-intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .single-feature {
+        padding: 16px;
+        gap: 28px;
+        margin-bottom: 42px;
     }
 
     .single-info h2 {
-        margin-bottom: 1rem;
+        font-size: 1.25rem;
     }
-
-    .single-info > p {
-        margin-bottom: 2.5rem;
-    }
-
-
-    /* -----------------------------------
-       Streaming information
-    ----------------------------------- */
-
-    .streaming-info {
-        max-width: 520px;
-        margin: 0 auto;
-        text-align: center;
-        line-height: 1.8;
-    }
-
-
-    /* -----------------------------------
-       Music links
-    ----------------------------------- */
 
     .music-links {
-        margin: 2rem auto 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1.75rem;
-        flex-wrap: wrap;
+        gap: 24px;
     }
 
     .music-links a {
-        font-size: 2rem;
-        color: #fff;
-        text-decoration: none;
-        transition: color 0.3s, transform 0.3s;
-    }
-
-    .music-links a:hover {
-        transform: scale(1.2);
-    }
-
-    .music-links a.spotify:hover {
-        color: #1db954;
-    }
-
-    .music-links a.bandcamp:hover {
-        color: #629aa9;
-    }
-
-    .music-links a.youtube:hover {
-        color: #ff0000;
-    }
-
-    .music-links a.apple:hover {
-        color: #a2aaad;
-    }
-
-    .music-links a.amazon:hover {
-        color: #ff9900;
-    }
-
-
-    /* -----------------------------------
-       TIDAL icon
-    ----------------------------------- */
-
-    .music-links a.tidal {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        font-size: 1.7rem;
     }
 
     .music-links a.tidal svg {
-        width: 2rem;
-        height: 2rem;
-        fill: currentColor;
-        transition: transform 0.3s;
+        width: 1.7rem;
+        height: 1.7rem;
     }
-
-    .music-links a.tidal:hover {
-        color: #00ffff;
-    }
-
-    .music-links a.tidal:hover svg {
-        transform: scale(1.2);
-    }
-
-
-    /* -----------------------------------
-       About the song
-    ----------------------------------- */
 
     .song-blurb {
-        max-width: 800px;
-        margin: 0 auto;
-        text-align: left;
-        line-height: 1.8;
+        font-size: .98rem;
     }
-
-    .song-blurb p {
-        margin: 0 0 1.5rem;
-    }
-
-    .song-blurb .dedication {
-        margin-top: 2.75rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        font-size: 1.05rem;
-    }
-
-    .download-invitation {
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-
-    /* -----------------------------------
-       Lyrics artwork
-    ----------------------------------- */
-
-    .lyrics-artwork {
-        position: relative;
-        max-width: 850px;
-        width: 100%;
-        margin: 5rem auto 0;
-        overflow: hidden;
-        border-radius: 4px;
-
-        background-image: url('assets/img/LeelaArt2.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-
-    /* Subtle dark overlay for readability */
-
-    .lyrics-artwork::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.28);
-        z-index: 0;
-    }
-
-
-    /* -----------------------------------
-       Lyrics
-    ----------------------------------- */
 
     .lyrics-overlay {
-        position: relative;
-        z-index: 1;
-        padding: 5rem 5rem 5.5rem;
-        color: #fff;
-        text-align: center;
-    }
-
-    .lyrics-heading {
-        margin-bottom: 3rem;
-        color: #fff;
+        padding: 3rem 1.25rem 3.5rem;
     }
 
     .lyrics {
-        line-height: 1.9;
-        text-align: center;
-        color: #fff;
-        text-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
-    }
-
-    .lyrics p {
-        margin-bottom: 2rem;
-    }
-
-    .lyrics .chorus {
-        color: #fff;
-        margin: 2.75rem 0;
-    }
-
-    .lyrics .chorus strong {
-        font-weight: 700;
-    }
-
-    .lyrics .final-lines {
-        margin-top: 2.75rem;
-    }
-
-
-    /* -----------------------------------
-       Credits
-    ----------------------------------- */
-
-    .credits {
+        font-size: .91rem;
         line-height: 1.8;
+        overflow-wrap: anywhere;
     }
 
-
-    /* -----------------------------------
-       Mobile
-    ----------------------------------- */
-
-    @media (max-width: 991.98px) {
-
-        .about-section {
-            padding-top: 6rem;
-        }
-
-        .single-info {
-            padding-left: 0;
-            margin-top: 2.5rem;
-            text-align: center;
-        }
-
-        .single-info > p {
-            margin-bottom: 2.5rem;
-        }
-
-        .streaming-info {
-            text-align: center;
-        }
-
-        .music-links {
-            justify-content: center;
-        }
-
-        .single-feature {
-            margin-bottom: 4rem;
-        }
-
-        .song-blurb {
-            padding: 0 1rem;
-        }
-
-        .music-links {
-            gap: 1.5rem;
-        }
-
-        .lyrics-artwork {
-            margin-top: 4rem;
-            border-radius: 4px;
-            background-position: center;
-        }
-
-        .lyrics-overlay {
-            padding: 3rem 1.5rem 3.5rem;
-        }
-
-        .lyrics {
-            line-height: 1.8;
-        }
-
+    .lyrics-heading {
+        margin-bottom: 2.5rem;
     }
 
-    .song-blurb a {
-        color: #fff;
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.5);
-        text-underline-offset: 3px;
+    .section-heading span {
+        display: none;
     }
 
-    .song-blurb a:hover {
-        color: #fff;
-        text-decoration-color: #fff;
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
+
+    .site-nav a,
+    .player-tab,
+    .music-links a {
+        transition: none;
+    }
+
+}
 
 </style>
 
-
 </head>
 
-<body id="page-top">
+<body>
 
-<!-- Navigation -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
-<nav class="simple-nav">
+<header class="site-header">
 
+    <a href="index.html" aria-label="SAJA Project home">
 
-<div class="nav-container">
-
-    <a href="index.html">
         <img
             src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
-            alt="SAJA Project"
-            class="nav-logo"
-        >
+            alt="SAJA Project symbol">
+
     </a>
 
-    <div class="nav-links">
-        <a href="./album.html">New Album</a>
-        <a href="./about.html">About</a>
-    </div>
+    <nav class="site-nav" aria-label="Main navigation">
 
-</div>
+        <a href="presskit.html">Press Kit</a>
 
+        <a
+            href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link">
+            Contact
+        </a>
 
-</nav>
+    </nav>
 
-<!-- Single Section -->
+</header>
 
-<section class="about-section">
+<main>
 
+<!-- =========================================
+     SINGLE INTRODUCTION
+========================================= -->
 
-<div class="container px-4 px-lg-5 text-center">
+<section class="single-intro">
 
+    <p class="eyebrow">
+        Single · Out now
+    </p>
 
-    <!-- Single heading -->
-    <div class="single-heading">
+    <h1>
+        Sunday Girl<span>.</span>
+    </h1>
 
-    </div>
+</section>
 
+<!-- =========================================
+     SINGLE PLAYER AND INFORMATION
+========================================= -->
 
-    <!-- Player and information -->
-    <div class="row gx-5 justify-content-center align-items-start single-feature">
+<section
+    class="single-feature"
+    aria-label="Sunday Girl player and listening information">
 
+    <!-- PLAYER -->
 
-        <!-- Left: Player -->
-        <div class="col-lg-7 mb-4 mb-lg-0">
+    <div class="single-player">
 
-            <div class="single-player">
+        <div
+            class="player-tabs"
+            role="group"
+            aria-label="Sunday Girl listening platform">
 
-                <div class="player-tabs">
+            <button
+                type="button"
+                class="player-tab active"
+                data-player="spotify"
+                aria-pressed="true">
+                Spotify
+            </button>
 
-                    <button
-                        class="player-tab active"
-                        type="button"
-                        data-player="spotify"
-                        onclick="showPlayer(this)"
-                    >
-                        Spotify
-                    </button>
-
-                    <button
-                        class="player-tab"
-                        type="button"
-                        data-player="bandcamp"
-                        onclick="showPlayer(this)"
-                    >
-                        Bandcamp
-                    </button>
-
-                </div>
-
-
-                <div class="player-content">
-
-                    <!-- Spotify -->
-                    <div
-                        class="player-panel active"
-                        data-player-panel="spotify"
-                    >
-
-                        <iframe
-                            class="spotify-frame"
-                            src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                            loading="lazy"
-                        ></iframe>
-
-                    </div>
-
-
-                    <!-- Bandcamp -->
-                    <div
-                        class="player-panel"
-                        data-player-panel="bandcamp"
-                    >
-
-                        <div class="bandcamp-panel">
-
-                            <a
-                                href="https://sajaproject.bandcamp.com/track/sunday-girl"
-                                target="_blank"
-                            >
-                                Listen to and download <em>Sunday Girl</em> on Bandcamp
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <button
+                type="button"
+                class="player-tab"
+                data-player="bandcamp"
+                aria-pressed="false">
+                Bandcamp
+            </button>
 
         </div>
 
+        <div class="player-content">
 
-        <!-- Right: Single Information -->
-        <div class="col-lg-5">
+            <!-- SPOTIFY -->
 
-            <div class="single-info">
+            <div
+                class="player-panel active"
+                data-player-panel="spotify">
 
-                <h2>
-                    Sunday Girl
-                </h2>
+                <iframe
+                    class="spotify-frame"
+                    title="Sunday Girl on Spotify"
+                    src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
+                    width="100%"
+                    height="352"
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                </iframe>
 
-                <p class="text-white-70">
-                    Our new single, out now.
-                </p>
+            </div>
 
+            <!-- BANDCAMP -->
 
-                <div class="streaming-info text-white-70">
+            <div
+                class="player-panel"
+                data-player-panel="bandcamp">
 
-                    You can listen to it in all the usual places.
-                    <br/>
+                <div class="bandcamp-panel">
 
-                    But ideally, we would love you to listen and download from
                     <a
                         href="https://sajaproject.bandcamp.com/track/sunday-girl"
                         target="_blank"
-                        class="bandcamp"
-                    >Bandcamp</a>
+                        rel="noopener noreferrer">
 
-                </div>
-
-
-                <!-- Music Links -->
-
-                <div class="music-links">
-
-                    <!-- Spotify -->
-                    <a
-                        href="https://open.spotify.com/track/1Hku7ux9QRDGdwWyJwBqVn?si=cf900611ad384ac0"
-                        target="_blank"
-                        class="spotify"
-                        title="Spotify"
-                    >
-                        <i class="fab fa-spotify"></i>
-                    </a>
-
-
-                    <!-- Bandcamp -->
-                    <a
-                        href="https://sajaproject.bandcamp.com/track/sunday-girl"
-                        target="_blank"
-                        class="bandcamp"
-                        title="Bandcamp"
-                    >
-                        <i class="fab fa-bandcamp"></i>
-                    </a>
-
-
-                    <!-- YouTube -->
-                    <a
-                        href="https://www.youtube.com/watch?v=YVhUiVWyN5Y&list=OLAK5uy_nxoghfkufjxQe-tJHCfADfn8tSiqUzfqQ"
-                        target="_blank"
-                        class="youtube"
-                        title="YouTube"
-                    >
-                        <i class="fab fa-youtube"></i>
-                    </a>
-
-
-                    <!-- Apple Music -->
-                    <a
-                        href="https://music.apple.com/au/album/sunday-girl/6794580571?i=6794580572"
-                        target="_blank"
-                        class="apple"
-                        title="Apple Music"
-                    >
-                        <i class="fab fa-apple"></i>
-                    </a>
-
-
-                    <!-- TIDAL -->
-                    <a
-                        href="https://tidal.com/track/546314087/u"
-                        target="_blank"
-                        class="tidal"
-                        title="TIDAL"
-                    >
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-
-                            <polygon points="3,7 7,3 11,7 7,11"/>
-                            <polygon points="13,7 17,3 21,7 17,11"/>
-                            <polygon points="8,12 12,8 16,12 12,16"/>
-                            <polygon points="3,17 7,13 11,17 7,21"/>
-                            <polygon points="13,17 17,13 21,17"/>
-
-                        </svg>
+                        Listen to and download
+                        <em>Sunday Girl</em> on Bandcamp
 
                     </a>
-
-
-                    <!-- Amazon Music -->
-                    <!--
-                    <a
-                        href="#"
-                        target="_blank"
-                        class="amazon"
-                        title="Amazon Music"
-                    >
-                        <i class="fab fa-amazon"></i>
-                    </a>
-                    -->
 
                 </div>
 
@@ -655,43 +793,195 @@
 
     </div>
 
+    <!-- SINGLE INFORMATION -->
 
-    <!-- About the song -->
+    <div class="single-info">
 
-    <div class="song-blurb text-white-70">
+        <h2>Sunday Girl</h2>
+
+        <p>Our new single, out now.</p>
+
+        <div class="streaming-info">
+
+            You can listen to it in all the usual places.
+            <br>
+            But ideally, we would love you to listen and download from
+            <a
+                href="https://sajaproject.bandcamp.com/track/sunday-girl"
+                target="_blank"
+                rel="noopener noreferrer">
+                Bandcamp
+            </a>
+
+        </div>
+
+        <!-- STREAMING PLATFORM LINKS -->
+
+        <div
+            class="music-links"
+            aria-label="Listen on other platforms">
+
+            <!-- SPOTIFY -->
+
+            <a
+                href="https://open.spotify.com/track/1Hku7ux9QRDGdwWyJwBqVn?si=cf900611ad384ac0"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="spotify"
+                title="Spotify"
+                aria-label="Listen on Spotify">
+
+                <i class="fab fa-spotify" aria-hidden="true"></i>
+
+            </a>
+
+            <!-- BANDCAMP -->
+
+            <a
+                href="https://sajaproject.bandcamp.com/track/sunday-girl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bandcamp"
+                title="Bandcamp"
+                aria-label="Listen on Bandcamp">
+
+                <i class="fab fa-bandcamp" aria-hidden="true"></i>
+
+            </a>
+
+            <!-- YOUTUBE -->
+
+            <a
+                href="https://www.youtube.com/watch?v=YVhUiVWyN5Y&amp;list=OLAK5uy_nxoghfkufjxQe-tJHCfADfn8tSiqUzfqQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="youtube"
+                title="YouTube"
+                aria-label="Listen on YouTube">
+
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+
+            </a>
+
+            <!-- APPLE MUSIC -->
+
+            <a
+                href="https://music.apple.com/au/album/sunday-girl/6794580571?i=6794580572"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="apple"
+                title="Apple Music"
+                aria-label="Listen on Apple Music">
+
+                <i class="fab fa-apple" aria-hidden="true"></i>
+
+            </a>
+
+            <!-- TIDAL -->
+
+            <a
+                href="https://tidal.com/track/546314087/u"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="tidal"
+                title="TIDAL"
+                aria-label="Listen on TIDAL">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                    <polygon points="3,7 7,3 11,7 7,11"/>
+                    <polygon points="13,7 17,3 21,7 17,11"/>
+                    <polygon points="8,12 12,8 16,12 12,16"/>
+                    <polygon points="3,17 7,13 11,17 7,21"/>
+                    <polygon points="13,17 17,13 21,17"/>
+
+                </svg>
+
+            </a>
+
+            <!-- AMAZON MUSIC (ORIGINAL PLACEHOLDER)
+            <a
+                href="#"
+                target="_blank"
+                class="amazon"
+                title="Amazon Music">
+                <i class="fab fa-amazon"></i>
+            </a>
+            -->
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     ABOUT THE SONG
+========================================= -->
+
+<section
+    class="story-section"
+    aria-labelledby="story-title">
+
+    <div class="section-heading">
+
+        <h2 id="story-title">
+            About the song
+        </h2>
+
+        <span>
+            The story behind Sunday Girl
+        </span>
+
+    </div>
+
+    <div class="song-blurb">
 
         <p>
-            We wrote <em>Sunday Girl</em> for the opening of an all-female annual art
-            exhibition in 2023, with the same name. The exhibition was founded and curated
+            We wrote <em>Sunday Girl</em> for the opening of an
+            all-female annual art exhibition in 2023, with the
+            same name. The exhibition was founded and curated
             by Leela Bhai (Auckland, NZ).
         </p>
 
         <p>
-            At the time, I had arranged to sing in <a href="https://tuimamaki.com/acapollinations/">Acapollinations</a> as a duo set with
-            <a href="https://tuimamaki.com/">Tui Mamaki</a>, who would travel to Auckland to perform with me there. However, over
-            those pandemic years, we had become accustomed to our performing life being
-            frayed by constant disruption and uncertainty, so I knew I needed a back-up
-            option for the opening performance should we not be able to perform together.
-            Thus, <em>Sunday Girl</em> was written as an alternate performance song to
-            open the exhibition.
+            At the time, I had arranged to sing in
+            <a href="https://tuimamaki.com/acapollinations/">
+                Acapollinations
+            </a>
+            as a duo set with
+            <a href="https://tuimamaki.com/">
+                Tui Mamaki
+            </a>,
+            who would travel to Auckland to perform with me there.
+            However, over those pandemic years, we had become
+            accustomed to our performing life being frayed by
+            constant disruption and uncertainty, so I knew I
+            needed a back-up option for the opening performance
+            should we not be able to perform together.
+            Thus, <em>Sunday Girl</em> was written as an alternate
+            performance song to open the exhibition.
         </p>
 
         <p>
-            In the writing process it was easy to be inspired and feel empowered to
-            support and be a part of a female movement in art. For just this opportunity,
-            and the simple provocation this provided me, I will always feel indebted to
-            Leela Bhai, and her vision and commitment to art, creativity and supporting
+            In the writing process it was easy to be inspired
+            and feel empowered to support and be a part of a
+            female movement in art. For just this opportunity,
+            and the simple provocation this provided me, I will
+            always feel indebted to Leela Bhai, and her vision
+            and commitment to art, creativity and supporting
             female artists (in all modalities).
         </p>
 
         <p>
-            I’m honoured that Leela also graciously allowed me to use her work as the
-            cover art for this song, as well as the art featured below.
+            I’m honoured that Leela also graciously allowed me
+            to use her work as the cover art for this song,
+            as well as the art featured below.
         </p>
 
         <p>
-            This song is a dedication of love in honouring, supporting and empowering
-            female creatives in the arts.
+            This song is a dedication of love in honouring,
+            supporting and empowering female creatives in the arts.
         </p>
 
         <p>
@@ -699,18 +989,28 @@
             <a
                 href="https://sajaproject.bandcamp.com/"
                 target="_blank"
-                class="bandcamp"
-            >download</a> a copy for your own.
+                rel="noopener noreferrer"
+                class="bandcamp">
+                download
+            </a>
+            a copy for your own.
         </p>
 
-        <p style="text-align: right; margin-top: 2rem;">
+        <p class="song-signature">
             ~ Sally Jamila
         </p>
 
     </div>
 
+</section>
 
-    <!-- Lyrics over artwork -->
+<!-- =========================================
+     LYRICS OVER LEELA BHAI ARTWORK
+========================================= -->
+
+<section
+    class="lyrics-section"
+    aria-label="Sunday Girl lyrics and artwork">
 
     <div class="lyrics-artwork">
 
@@ -720,101 +1020,91 @@
                 Sunday Girl
             </h2>
 
-
             <div class="lyrics">
 
                 <p>
                     <strong>
-                        You and I under the great blue sky<br/>
-                        Like flower buds reaching to the sun, up high<br/>
-                        Growing gardens from bellies of fire<br/>
-                        Leaves of new life, butterflies flying higher<br/>
-                        Springtime of life Open up your desire<br/>
+                        You and I under the great blue sky<br>
+                        Like flower buds reaching to the sun, up high<br>
+                        Growing gardens from bellies of fire<br>
+                        Leaves of new life, butterflies flying higher<br>
+                        Springtime of life Open up your desire<br>
                         Tend the garden, Tend the fire
                     </strong>
                 </p>
 
-
                 <p class="chorus">
                     <strong>
-                        Now there is room for you to bloom<br/>
-                        Blue skies above call you out<br/>
-                        Reach to the sun as your bud becomes<br/>
+                        Now there is room for you to bloom<br>
+                        Blue skies above call you out<br>
+                        Reach to the sun as your bud becomes<br>
                         my Sunday Girl, I Love You
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        In the stillness the air is clear<br/>
-                        For growing fantastical ideas without fear<br/>
+                        In the stillness the air is clear<br>
+                        For growing fantastical ideas without fear<br>
                         All buds outshine the trees like blossoms for the honey bees
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        Slip jack, phat tracks, feel that beat crack, hell y’all<br/>
-                        mothers, daughters, sisters, all<br/>
+                        Slip jack, phat tracks, feel that beat crack, hell y’all<br>
+                        mothers, daughters, sisters, all<br>
                         Can I get a hell y’all?
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        Wake-up sun dwellers,<br/>
-                        The time has come<br/>
+                        Wake-up sun dwellers,<br>
+                        The time has come<br>
                         Your time to shine
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        Warm rain, stiff wind, volatile,<br/>
-                        hot air, nature freestyle<br/>
-                        You turn up the pulse, don’t try to deny it<br/>
+                        Warm rain, stiff wind, volatile,<br>
+                        hot air, nature freestyle<br>
+                        You turn up the pulse, don’t try to deny it<br>
                         you feel it, you feed it, then cheer it, then be it, you know it, now show it
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        Flowing past the first pause,<br/>
-                        blow onto your big cause,<br/>
-                        The season of Divine Laws<br/>
+                        Flowing past the first pause,<br>
+                        blow onto your big cause,<br>
+                        The season of Divine Laws<br>
                         Grab it in your own jaws
                     </strong>
                 </p>
 
-
                 <p class="chorus">
                     <strong>
-                        Now there is room for you to bloom<br/>
-                        Blue skies above call you out<br/>
-                        Reach to the sun as your bud becomes<br/>
+                        Now there is room for you to bloom<br>
+                        Blue skies above call you out<br>
+                        Reach to the sun as your bud becomes<br>
                         my Sunday Girl, I Love You (x3)
                     </strong>
                 </p>
 
-
                 <p>
                     <strong>
-                        (Girl, I love you, Be my Sun Day)<br/>
+                        (Girl, I love you, Be my Sun Day)<br>
                         (Sun Day, Fun Day, My Girl Sunday)
                     </strong>
                 </p>
 
-
                 <p class="final-lines">
                     <strong>
-                        You’re beautiful As You Are<br/>
-                        Girl Sun Day<br/>
-                        Spread your wings, fly away<br/>
+                        You’re beautiful As You Are<br>
+                        Girl Sun Day<br>
+                        Spread your wings, fly away<br>
                         Sunday Girl
                     </strong>
                 </p>
@@ -825,90 +1115,123 @@
 
     </div>
 
+</section>
 
-</div>
+<!-- =========================================
+     CREDITS
+========================================= -->
 
+<section class="credits">
+
+    <h2>Song credits</h2>
+
+    <p>
+        Music and lyrics by Sally Jamila and Jamie Gabriel
+        <br>
+        Rap lyric collaboration with Robert Mignault
+        <br>
+        Produced by SAJA Project
+    </p>
 
 </section>
 
-<!-- Credits -->
+</main>
 
-<section class="projects-section bg-black text-center">
+<!-- =========================================
+     FOOTER
+========================================= -->
 
+<footer>
 
-<div class="container px-4 px-lg-5">
-
-    <div class="row justify-content-center">
-
-        <div class="col-lg-8 text-white-50 credits">
-
-            <p>
-                Music and lyrics by Sally Jamila and Jamie Gabriel<br/>
-                Rap lyric collaboration with Robert Mignault<br/>
-                Produced by SAJA Project
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
-
-<!-- Footer -->
-
-<footer class="footer bg-black small text-center text-white-50">
-
-
-<div class="container px-4 px-lg-5">
-
-    Copyright &copy; SAJA 2026<br>
+    © SAJA 2026 &nbsp;·&nbsp;
     Photography by Sabine Mignault
-
-</div>
-
 
 </footer>
 
-<!-- JS -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/scripts.js"></script>
+<!-- =========================================
+     PLAYER TAB JAVASCRIPT
+========================================= -->
 
 <script>
 
-    function showPlayer(button) {
+(function () {
 
-        const player = button.dataset.player;
-        const container = button.closest('.single-player');
+    const player = document.querySelector('.single-player');
 
-        const tabs = container.querySelectorAll('.player-tab');
-        const panels = container.querySelectorAll('.player-panel');
+    const tabs = player.querySelectorAll('.player-tab');
 
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
+    const panels = player.querySelectorAll('.player-panel');
+
+    tabs.forEach(function (tab) {
+
+        tab.addEventListener('click', function () {
+
+            const platform = tab.dataset.player;
+
+            // Update active tabs.
+
+            tabs.forEach(function (t) {
+
+                const active = t === tab;
+
+                t.classList.toggle('active', active);
+
+                t.setAttribute(
+                    'aria-pressed',
+                    String(active)
+                );
+
+            });
+
+            // Switch between Spotify and Bandcamp.
+
+            panels.forEach(function (panel) {
+
+                const active =
+                    panel.dataset.playerPanel === platform;
+
+                panel.classList.toggle('active', active);
+
+                const iframe = panel.querySelector('iframe');
+
+                if (!iframe) {
+                    return;
+                }
+
+                if (active) {
+
+                    // Restore the selected player.
+
+                    if (!iframe.getAttribute('src') && iframe.dataset.src) {
+
+                        iframe.src = iframe.dataset.src;
+
+                    }
+
+                } else {
+
+                    // Stop Spotify playback when switching away.
+
+                    if (iframe.hasAttribute('src')) {
+
+                        iframe.dataset.src = iframe.getAttribute('src');
+
+                        iframe.removeAttribute('src');
+
+                    }
+
+                }
+
+            });
+
         });
 
-        panels.forEach(panel => {
-            panel.classList.remove('active');
-        });
+    });
 
-        button.classList.add('active');
-
-        const panel = container.querySelector(
-            '[data-player-panel="' + player + '"]'
-        );
-
-        if (panel) {
-            panel.classList.add('active');
-        }
-
-    }
+})();
 
 </script>
 
 </body>
+
 </html>

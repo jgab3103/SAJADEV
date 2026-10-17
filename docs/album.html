@@ -1,663 +1,915 @@
-<!DOCTYPE html>
 
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>SAJA Project — SAJA Project [01]</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Font Awesome icons -->
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<meta name="description"
+      content="SAJA Project [01] — the debut studio album by SAJA Project. Listen, explore the tracks and discover the music.">
 
-<!-- Google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
+<title>SAJA Project — SAJA Project [01]</title>
 
-<!-- Core theme CSS -->
-<link href="css/styles.css" rel="stylesheet" />
+<link rel="icon" href="assets/favicon.ico">
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap"
+    rel="stylesheet">
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-    body {
-        font-family: 'Nunito', sans-serif;
-        color: #fff;
+/* =========================================
+   GLOBAL
+========================================= */
+
+:root {
+    --ink: #151515;
+    --paper: #f4f1eb;
+    --orange: #e99a47;
+    --muted: #746f69;
+    --line: #d6cec3;
+    --nav: #26161A;
+    --footer: #0A0908;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   NAVIGATION — MATCHES HOMEPAGE
+========================================= */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 14px max(24px, calc((100vw - 1160px) / 2));
+
+    background: var(--nav);
+    color: var(--paper);
+
+    border-bottom: 1px solid #3b342a;
+}
+
+.site-header img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.site-nav {
+    display: flex;
+    gap: 26px;
+
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    transition: color .2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+    color: var(--orange);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+    max-width: 1160px;
+    margin: auto;
+    padding: 0 24px;
+}
+
+.eyebrow {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-weight: 800;
+    color: #a45e24;
+    margin: 0 0 12px;
+}
+
+/* =========================================
+   ALBUM INTRODUCTION
+========================================= */
+
+.album-intro {
+    padding: 46px 0 34px;
+}
+
+.album-intro h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    margin: 0 0 12px;
+}
+
+.album-intro h1 span {
+    color: var(--orange);
+}
+
+.album-intro p:not(.eyebrow) {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #625c55;
+    margin: 0;
+}
+
+/* =========================================
+   ALBUM FEATURE
+========================================= */
+
+.album-feature {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 42px;
+    align-items: start;
+
+    padding: 30px;
+
+    background: #171313;
+    color: var(--paper);
+
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+
+    margin-bottom: 42px;
+}
+
+/* =========================================
+   PLAYER
+========================================= */
+
+.album-player {
+    min-width: 0;
+    width: 100%;
+}
+
+.player-tabs {
+    display: flex;
+    gap: 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+
+    margin-bottom: 18px;
+}
+
+.player-tab {
+    background: transparent;
+
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    color: #aaa;
+
+    padding: 9px 0 11px;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: .85rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: color .2s ease;
+}
+
+.player-tab.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+.player-tab:hover {
+    color: #fff;
+}
+
+.player-panel {
+    display: none;
+}
+
+.player-panel.active {
+    display: block;
+}
+
+.player-panel iframe {
+    display: block;
+    width: 100%;
+
+    border: 0;
+    border-radius: 12px;
+}
+
+.spotify-frame {
+    height: 450px;
+}
+
+.bandcamp-frame {
+    height: 687px;
+}
+
+/* =========================================
+   TRACKLIST
+========================================= */
+
+.tracklist {
+    padding-top: 5px;
+}
+
+.tracklist h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+
+    margin: 0 0 20px;
+}
+
+.tracklist ol {
+    margin: 0;
+    padding-left: 28px;
+
+    color: #e5e0d8;
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.tracklist li {
+    padding: 8px 0 8px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.tracklist li:last-child {
+    border-bottom: none;
+}
+
+.tracklist li::marker {
+    color: var(--orange);
+    font-weight: 800;
+}
+
+/* =========================================
+   LISTENING INFORMATION
+========================================= */
+
+.listening-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 14px 0 32px;
+    text-align: center;
+}
+
+.listening-info p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: #625c55;
+    margin: 0 0 14px;
+}
+
+.listening-info a {
+    color: #97501e;
+    font-weight: 800;
+    border-bottom: 1px solid currentColor;
+}
+
+.listening-info a:hover {
+    color: var(--ink);
+}
+
+/* =========================================
+   MUSIC PLATFORM LINKS
+========================================= */
+
+.music-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 34px;
+
+    padding: 4px 0 52px;
+}
+
+.music-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 2rem;
+    color: var(--nav);
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+.music-links a:hover {
+    transform: translateY(-3px);
+}
+
+.music-links a.spotify:hover {
+    color: #1db954;
+}
+
+.music-links a.bandcamp:hover {
+    color: #629aa9;
+}
+
+.music-links a.youtube:hover {
+    color: #ff0000;
+}
+
+.music-links a.apple:hover {
+    color: #a2aaad;
+}
+
+.music-links a.tidal:hover {
+    color: #008c91;
+}
+
+.music-links a.tidal svg {
+    width: 2rem;
+    height: 2rem;
+    fill: currentColor;
+}
+
+/* =========================================
+   CREDITS
+========================================= */
+
+.credits {
+    border-top: 1px solid var(--line);
+    padding: 28px 0 46px;
+    text-align: center;
+}
+
+.credits h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0 0 18px;
+}
+
+.credits p {
+    font-size: .88rem;
+    line-height: 1.9;
+    color: #625c55;
+    margin: 0;
+}
+
+/* =========================================
+   FOOTER — MATCHES HOMEPAGE
+========================================= */
+
+footer {
+    background: var(--footer);
+    color: var(--paper);
+
+    text-align: center;
+    padding: 26px;
+    font-size: .75rem;
+
+    margin-top: 0;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .album-feature {
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 
-    .projects-section {
-        padding: 4rem 0;
+    .tracklist {
+        padding-top: 0;
     }
 
-    .about-section {
-        padding: 6rem 0 4rem;
-        background-color: #111;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+
+    .site-header {
+        padding: 12px 20px;
     }
 
-    .text-white-70 {
-        color: rgba(255,255,255,0.7);
+    .site-nav {
+        gap: 15px;
+        font-size: .7rem;
     }
 
-    .bg-black {
-        background-color: #111 !important;
+    main {
+        padding: 0 18px;
     }
 
-    .footer {
-        padding: 2rem 0;
+    .album-intro {
+        padding: 30px 0 24px;
     }
 
-    a {
-        color: #fff;
-        text-decoration: underline;
+    .album-intro h1 {
+        font-size: 2.5rem;
     }
 
-
-    /* =========================
-       ALBUM PLAYER
-       ========================= */
-
-    .album-player {
-        width: 100%;
-        text-align: left;
-    }
-
-    .player-tabs {
-        display: flex;
-        gap: 18px;
-        margin-bottom: 12px;
-        align-items: center;
-    }
-
-    .player-tab {
-        padding: 0 0 3px;
-        border: 0 !important;
-        border-bottom: 1px solid transparent !important;
-        background: none;
-        color: rgba(255,255,255,.5);
-        font-family: 'Nunito', sans-serif;
-        font-size: .82rem;
-        cursor: pointer;
-    }
-
-    .player-tab:hover {
-        color: #fff;
-    }
-
-    .player-tab.active {
-        color: #fff;
-        border-bottom-color: rgba(255,255,255,.7) !important;
-    }
-
-    .player-content {
-        position: relative;
-        width: 100%;
-    }
-
-    .player-panel {
-        width: 100%;
-        display: none;
-    }
-
-    .player-panel.active {
-        display: block;
+    .album-feature {
+        padding: 16px;
+        gap: 28px;
     }
 
     .spotify-frame {
-        display: block;
-        width: 100%;
-        height: 450px;
-        border: 0;
-        border-radius: 12px;
+        height: 380px;
     }
 
     .bandcamp-frame {
-        display: block;
-        width: 100%;
-        height: 687px;
-        border: 0;
-        border-radius: 12px;
+        height: 600px;
     }
 
+    .tracklist h2 {
+        font-size: 1.25rem;
+    }
 
-    /* =========================
-       MUSIC LINKS ICONS
-       ========================= */
+    .tracklist ol {
+        font-size: .94rem;
+    }
 
     .music-links {
-        margin-top: 2rem;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
+        gap: 26px;
+        padding-bottom: 40px;
     }
 
     .music-links a {
-        font-size: 2rem;
-        color: #fff;
-        transition: color 0.3s, transform 0.3s;
-    }
-
-    .music-links a:hover {
-        transform: scale(1.2);
-    }
-
-    .music-links a.spotify:hover {
-        color: #1db954;
-    }
-
-    .music-links a.bandcamp:hover {
-        color: #629aa9;
-    }
-
-    .music-links a.youtube:hover {
-        color: #ff0000;
-    }
-
-    .music-links a.apple:hover {
-        color: #a2aaad;
-    }
-
-    .music-links a.amazon:hover {
-        color: #ff9900;
-    }
-
-
-    /* TIDAL icon */
-
-    .music-links a.tidal {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        font-size: 1.7rem;
     }
 
     .music-links a.tidal svg {
-        width: 2rem;
-        height: 2rem;
-        fill: currentColor;
-        transition: transform 0.3s;
+        width: 1.7rem;
+        height: 1.7rem;
     }
 
-    .music-links a.tidal:hover {
-        color: #00ffff;
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
 
-    .music-links a.tidal:hover svg {
-        transform: scale(1.2);
+    .site-nav a,
+    .player-tab,
+    .music-links a {
+        transition: none;
     }
 
-
-    /* =========================
-       SUBVERT LINK
-       ========================= */
-
-    .subvert-link {
-        font-size: 0.35rem;
-        font-family: "Courier New", Courier, monospace;
-        color: #fff;
-        opacity: 0.75;
-        vertical-align: middle;
-        margin-left: 8px;
-        position: relative;
-        top: -2px;
-        text-decoration: none;
-        letter-spacing: 0.5px;
-    }
-
-    .subvert-link:hover {
-        color: #fff;
-        opacity: 1;
-        text-decoration: none;
-    }
-
-
-    /* =========================
-       MOBILE
-       ========================= */
-
-    @media (max-width: 900px) {
-
-        .album-player {
-            margin-bottom: 2rem;
-        }
-
-    }
+}
 
 </style>
 
-
 </head>
 
-<body id="page-top">
+<body>
 
-<!-- =========================
+<!-- =========================================
      NAVIGATION
-     ========================= -->
+========================================= -->
 
-<nav class="simple-nav">
+<header class="site-header">
 
-
-<div class="nav-container">
-
-    <a href="index.html">
+    <a href="index.html" aria-label="SAJA Project home">
 
         <img
             src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
-            alt="SAJA Project"
-            class="nav-logo"
-        >
+            alt="SAJA Project symbol">
 
     </a>
 
-    <div class="nav-links">
-
-        <a href="./album.html">New Album</a>
-        <a href="./about.html">About</a>
-
-    </div>
-
-</div>
+    <nav class="site-nav" aria-label="Main navigation">
 
 
-</nav>
+        <a href="presskit.html">Press Kit</a>
 
-<!-- =========================
-     ALBUM SECTION
-     ========================= -->
+              <a href="https://bandcamp.com/contact?b=742412910&n=SAJA+Project&email=sally%40abovethemandrake.co.nz"
+                target="_blank"
+                class="contact-link"
+            >Contact</a>
 
-<section class="about-section">
+    </nav>
 
+</header>
 
-<div class="container px-4 px-lg-5 text-center">
+<main>
 
-    <br/><br/>
+<!-- =========================================
+     ALBUM INTRODUCTION
+========================================= -->
 
-    <div class="row gx-4 gx-lg-5 justify-content-center align-items-start">
+<section class="album-intro">
 
+    <p class="eyebrow">
+        Debut studio album · 2026
+    </p>
 
-        <!-- =========================
-             LEFT: ALBUM PLAYER
-             ========================= -->
+    <h1>
+        SAJA Project [01]<span>.</span>
+    </h1>
 
-        <div class="col-lg-7 mb-4 mb-lg-0">
+    <p>
+        
+    </p>
 
-            <div class="album-player">
+</section>
 
+<!-- =========================================
+     ALBUM PLAYER AND TRACKLIST
+========================================= -->
 
-                <!-- Player tabs -->
+<section class="album-feature" aria-label="Album player and tracklist">
 
-                <div class="player-tabs">
+    <!-- PLAYER -->
 
-                    <button
-                        class="player-tab active"
-                        type="button"
-                        data-player="spotify"
-                        onclick="showAlbumPlayer(this)">
-                        Spotify
-                    </button>
+    <div class="album-player">
 
-                    <button
-                        class="player-tab"
-                        type="button"
-                        data-player="bandcamp"
-                        onclick="showAlbumPlayer(this)">
-                        Bandcamp
-                    </button>
+        <div
+            class="player-tabs"
+            role="group"
+            aria-label="Album listening platform">
 
-                </div>
+            <button
+                type="button"
+                class="player-tab active"
+                data-player="spotify"
+                aria-pressed="true">
+                Spotify
+            </button>
 
+            <button
+                type="button"
+                class="player-tab"
+                data-player="bandcamp"
+                aria-pressed="false">
+                Bandcamp
+            </button>
 
-                <!-- Player content -->
+        </div>
 
-                <div class="player-content">
+        <div class="player-content">
 
+            <!-- SPOTIFY -->
 
-                    <!-- Spotify -->
+            <div
+                class="player-panel active"
+                data-player-panel="spotify">
 
-                    <div
-                        class="player-panel active"
-                        data-player-panel="spotify">
+                <iframe
+                    class="spotify-frame"
+                    title="SAJA Project 01 on Spotify"
+                    src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
+                    width="100%"
+                    height="450"
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                </iframe>
 
-                        <iframe
-                            class="spotify-frame"
-                            data-testid="embed-iframe"
-                            src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
-                            width="100%"
-                            height="450"
-                            frameborder="0"
-                            allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                        </iframe>
+            </div>
 
-                    </div>
+            <!-- BANDCAMP -->
 
+            <div
+                class="player-panel"
+                data-player-panel="bandcamp">
 
-                    <!-- Bandcamp -->
-
-                    <div
-                        class="player-panel"
-                        data-player-panel="bandcamp"
-                        data-bandcamp-url="https://bandcamp.com/EmbeddedPlayer/album=2354495077/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
-                        data-bandcamp-height="687">
-                    </div>
-
-
-                </div>
+                <iframe
+                    class="bandcamp-frame"
+                    title="SAJA Project 01 on Bandcamp"
+                    data-src="https://bandcamp.com/EmbeddedPlayer/album=2354495077/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+                    width="100%"
+                    height="687"
+                    loading="lazy">
+                </iframe>
 
             </div>
 
         </div>
 
+    </div>
 
-        <!-- =========================
-             RIGHT: TRACKLIST
-             ========================= -->
+    <!-- TRACKLIST -->
 
-        <div class="col-lg-5 text-lg-start">
+    <div class="tracklist">
 
-            <h4 class="mt-4">Tracklist</h4>
+        <h2>Tracklist</h2>
 
-            <ol class="text-white-70">
+        <ol>
 
-                <li>Kiss Me Out From The Cold</li>
+            <li>Kiss Me Out From The Cold</li>
 
-                <li>A Little Motion</li>
+            <li>A Little Motion</li>
 
-                <li>Apart In the Winter Sun</li>
+            <li>Apart In the Winter Sun</li>
 
-                <li>Don't Let Met Go</li>
+            <li>Don't Let Met Go</li>
 
-                <li>La Valse</li>
+            <li>La Valse</li>
 
-                <li>Feel Your Touch</li>
+            <li>Feel Your Touch</li>
 
-                <li>Softly As A Dream</li>
+            <li>Softly As A Dream</li>
 
-            </ol>
-
-        </div>
-
+        </ol>
 
     </div>
 
+</section>
 
-    <br/><br/>
+<!-- =========================================
+     LISTENING AND CD INFORMATION
+========================================= -->
 
+<section class="listening-info">
 
-    <!-- =========================
-         OTHER LISTENING / CD
-         ========================= -->
-
-    <div class="text-white-70">
-
+    <p>
         We hope you love our music. You can listen to it
-        <br/>
-        in all the usual places. But ideally, we would love to see you on
-
+        in all the usual places. But ideally, we would love
+        to see you on
         <a
             href="https://sajaproject.bandcamp.com/album/saja-project-01"
             target="_blank"
-            class="bandcamp"
-            title="Bandcamp">
-            BandCamp
+            rel="noopener noreferrer">
+            Bandcamp
         </a>.
+    </p>
 
-        <br/>
-
+    <p>
         You can also get a copy of our CD by contacting us
-
         <a
-            href="https://sajaproject.bandcamp.com/contact?b=742412910&n=SAJA%20Project&email=sally%40abovethemandrake.co.nz">
+            href="https://sajaproject.bandcamp.com/contact?b=742412910&amp;n=SAJA%20Project&amp;email=sally%40abovethemandrake.co.nz"
+            target="_blank"
+            rel="noopener noreferrer">
             here
         </a>.
-
-    </div>
-
-
-    <!-- =========================
-         MUSIC LINKS
-         ========================= -->
-
-    <div class="music-links">
-
-
-        <!-- Spotify -->
-
-        <a
-            href="https://open.spotify.com/album/1uM5lSf7tSYpBMCJ3xJLT3?si=VQGkIORrSPy_40YLU6ytnw"
-            target="_blank"
-            class="spotify"
-            title="Spotify">
-
-            <i class="fab fa-spotify"></i>
-
-        </a>
-
-
-        <!-- Bandcamp -->
-
-        <a
-            href="https://sajaproject.bandcamp.com/album/saja-project-01"
-            target="_blank"
-            class="bandcamp"
-            title="Bandcamp">
-
-            <i class="fab fa-bandcamp"></i>
-
-        </a>
-
-
-        <!-- YouTube -->
-
-        <a
-            href="https://www.youtube.com/watch?v=iNaWayU7Jkc&list=OLAK5uy_mAFncgSwvRT4ZnBA3nvJ7FU0uScwwXCIU"
-            target="_blank"
-            class="youtube"
-            title="YouTube">
-
-            <i class="fab fa-youtube"></i>
-
-        </a>
-
-
-        <!-- Apple Music -->
-
-        <a
-            href="https://music.apple.com/au/album/kiss-me-out-from-the-cold/1860548408?i=1860548409"
-            target="_blank"
-            class="apple"
-            title="Apple Music">
-
-            <i class="fab fa-apple"></i>
-
-        </a>
-
-
-        <!-- TIDAL -->
-
-        <a
-            href="https://tidal.com/album/534468002"
-            target="_blank"
-            class="tidal"
-            title="TIDAL">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-
-                <polygon points="3,7 7,3 11,7 7,11"/>
-                <polygon points="13,7 17,3 21,7 17,11"/>
-                <polygon points="8,12 12,8 16,12 12,16"/>
-                <polygon points="3,17 7,13 11,17 7,21"/>
-                <polygon points="13,17 17,13 21,17"/>
-
-            </svg>
-
-        </a>
-
-
-        <!-- Amazon intentionally omitted -->
-
-    </div>
-
-</div>
-
+    </p>
 
 </section>
 
-<!-- =========================
+<!-- =========================================
+     MUSIC PLATFORM LINKS
+========================================= -->
+
+<div class="music-links" aria-label="Listen on other platforms">
+
+    <!-- SPOTIFY -->
+
+    <a
+        href="https://open.spotify.com/album/1uM5lSf7tSYpBMCJ3xJLT3?si=VQGkIORrSPy_40YLU6ytnw"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="spotify"
+        title="Spotify"
+        aria-label="Listen on Spotify">
+
+        <i class="fab fa-spotify" aria-hidden="true"></i>
+
+    </a>
+
+    <!-- BANDCAMP -->
+
+    <a
+        href="https://sajaproject.bandcamp.com/album/saja-project-01"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bandcamp"
+        title="Bandcamp"
+        aria-label="Listen on Bandcamp">
+
+        <i class="fab fa-bandcamp" aria-hidden="true"></i>
+
+    </a>
+
+    <!-- YOUTUBE -->
+
+    <a
+        href="https://www.youtube.com/watch?v=iNaWayU7Jkc&amp;list=OLAK5uy_mAFncgSwvRT4ZnBA3nvJ7FU0uScwwXCIU"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="youtube"
+        title="YouTube"
+        aria-label="Listen on YouTube">
+
+        <i class="fab fa-youtube" aria-hidden="true"></i>
+
+    </a>
+
+    <!-- APPLE MUSIC -->
+
+    <a
+        href="https://music.apple.com/au/album/kiss-me-out-from-the-cold/1860548408?i=1860548409"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="apple"
+        title="Apple Music"
+        aria-label="Listen on Apple Music">
+
+        <i class="fab fa-apple" aria-hidden="true"></i>
+
+    </a>
+
+    <!-- TIDAL -->
+
+    <a
+        href="https://tidal.com/album/534468002"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="tidal"
+        title="TIDAL"
+        aria-label="Listen on TIDAL">
+
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true">
+
+            <polygon points="3,7 7,3 11,7 7,11"/>
+            <polygon points="13,7 17,3 21,7 17,11"/>
+            <polygon points="8,12 12,8 16,12 12,16"/>
+            <polygon points="3,17 7,13 11,17 7,21"/>
+            <polygon points="13,17 17,13 21,17"/>
+
+        </svg>
+
+    </a>
+
+</div>
+
+<!-- =========================================
      CREDITS
-     ========================= -->
+========================================= -->
 
-<section class="projects-section bg-black text-center">
+<section class="credits">
 
+    <h2>Album credits</h2>
 
-<div class="container px-4 px-lg-5">
-
-    <div class="row justify-content-center">
-
-        <div class="col-lg-8 text-white-50">
-
-            <p>
-
-                Tracks 1, 3, 4, 6, 7: Gabriel J, Howe S
-                <br/>
-
-                Tracks 2, 5: Gabriel J, Howe S, Mignault R
-                <br/>
-
-                Mixing and Mastering: Jason Holecliffe
-
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
+    <p>
+        Tracks 1, 3, 4, 6, 7: Gabriel J, Howe S
+        <br>
+        Tracks 2, 5: Gabriel J, Howe S, Mignault R
+        <br>
+        Mixing and Mastering: Jason Holecliffe
+    </p>
 
 </section>
 
-<!-- =========================
+</main>
+
+<!-- =========================================
      FOOTER
-     ========================= -->
+========================================= -->
 
-<footer class="footer bg-black small text-center text-white-50">
+<footer>
 
-
-<div class="container px-4 px-lg-5">
-
-    Copyright &copy; SAJA 2026
-    <br>
-
+    © SAJA 2026 &nbsp;·&nbsp;
     Photography by Sabine Mignault
-
-</div>
-
 
 </footer>
 
-<!-- =========================
-     JS
-     ========================= -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script src="js/scripts.js"></script>
-
-<!-- =========================
-     ALBUM PLAYER SWITCHING
-     ========================= -->
+<!-- =========================================
+     PLAYER TAB JAVASCRIPT
+========================================= -->
 
 <script>
 
-function loadBandcamp(panel) {
+(function () {
 
-    if (panel.dataset.loaded === 'true') {
-        return;
-    }
+    const player = document.querySelector('.album-player');
 
-    const iframe = document.createElement('iframe');
+    const tabs = player.querySelectorAll('.player-tab');
 
-    iframe.className = 'bandcamp-frame';
+    const panels = player.querySelectorAll('.player-panel');
 
-    iframe.src = panel.dataset.bandcampUrl;
+    tabs.forEach(function (tab) {
 
-    iframe.width = '100%';
+        tab.addEventListener('click', function () {
 
-    iframe.frameBorder = '0';
+            const platform = tab.dataset.player;
 
-    iframe.setAttribute('seamless', '');
+            // Update active tabs.
 
+            tabs.forEach(function (t) {
 
-    const link = document.createElement('a');
+                const active = t === tab;
 
-    link.href = 'https://sajaproject.bandcamp.com/album/saja-project-01';
+                t.classList.toggle('active', active);
 
-    link.textContent = 'SAJA Project 01 by SAJA Project';
+                t.setAttribute(
+                    'aria-pressed',
+                    String(active)
+                );
 
+            });
 
-    iframe.appendChild(link);
+            // Update active player.
 
-    panel.appendChild(iframe);
+            panels.forEach(function (panel) {
 
-    panel.dataset.loaded = 'true';
+                const active =
+                    panel.dataset.playerPanel === platform;
 
-}
+                panel.classList.toggle('active', active);
 
+                const iframe = panel.querySelector('iframe');
 
-function showAlbumPlayer(button) {
+                if (!iframe) {
+                    return;
+                }
 
-    const switcher = button.closest('.album-player');
+                if (active) {
 
-    const tabs = switcher.querySelectorAll('.player-tab');
+                    // Load selected player when required.
 
-    const panels = switcher.querySelectorAll('.player-panel');
+                    if (!iframe.getAttribute('src') && iframe.dataset.src) {
 
-    const player = button.dataset.player;
+                        iframe.src = iframe.dataset.src;
 
+                    }
 
-    if (player === 'bandcamp') {
+                } else {
 
-        const panel = switcher.querySelector(
-            '[data-player-panel="bandcamp"]'
-        );
+                    // Stop playback when switching platforms.
 
-        if (panel) {
-            loadBandcamp(panel);
-        }
+                    if (iframe.hasAttribute('src')) {
 
-    }
+                        iframe.dataset.src = iframe.getAttribute('src');
 
+                        iframe.removeAttribute('src');
 
-    tabs.forEach(function(tab) {
+                    }
 
-        tab.classList.remove('active');
+                }
+
+            });
+
+        });
 
     });
 
-
-    panels.forEach(function(panel) {
-
-        panel.classList.remove('active');
-
-    });
-
-
-    button.classList.add('active');
-
-
-    const panel = switcher.querySelector(
-        '[data-player-panel="' + player + '"]'
-    );
-
-
-    if (panel) {
-
-        panel.classList.add('active');
-
-    }
-
-}
+})();
 
 </script>
 
 </body>
+
 </html>

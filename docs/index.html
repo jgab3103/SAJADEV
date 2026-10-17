@@ -51,7 +51,12 @@ a {
     text-decoration: none;
 }
 
-a:focus-visible {
+button {
+    font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
     outline: 3px solid var(--orange);
     outline-offset: 3px;
 }
@@ -116,10 +121,6 @@ main {
 
 /* =========================================
    MASTHEAD BACKGROUND
-
-   Full width immediately below navigation.
-   Background continues behind both players.
-   Gradient darkens towards the bottom.
 ========================================= */
 
 .hero-background {
@@ -148,8 +149,6 @@ main {
 
 /* =========================================
    INTRODUCTION
-
-   Slightly smaller logo and typography.
 ========================================= */
 
 .intro {
@@ -174,11 +173,8 @@ main {
 .intro p {
     font-size: clamp(1rem, 1.65vw, 1.22rem);
     line-height: 1.5;
-
     max-width: 600px;
-
     margin: 0;
-
     color: #171717;
 }
 
@@ -188,25 +184,21 @@ main {
 
 .release-section {
     background: transparent;
-
     padding: 20px 0 75px;
 }
 
 .release-grid {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 28px;
 }
 
 /* =========================================
-   PLAYER PANELS
+   RELEASE PLAYER PANELS
 ========================================= */
 
 .release-player {
     min-width: 0;
-
     padding: 22px;
 
     background: rgba(10, 9, 8, 0.88);
@@ -235,14 +227,63 @@ main {
     font-weight: 400;
     line-height: 1.35;
 
-    margin: 0 0 20px;
+    margin: 0 0 16px;
 }
 
 /* =========================================
-   SPOTIFY PLAYERS
+   SPOTIFY / BANDCAMP TABS
 ========================================= */
 
-.release-player iframe {
+.player-tabs {
+    display: flex;
+    gap: 24px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+
+    margin-bottom: 16px;
+}
+
+.player-tab {
+    background: transparent;
+
+    border: none;
+    border-bottom: 2px solid transparent;
+
+    color: #aaa;
+
+    padding: 9px 0 11px;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: .85rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: color .2s ease;
+}
+
+.player-tab.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+}
+
+.player-tab:hover {
+    color: #fff;
+}
+
+/* =========================================
+   PLAYER CONTENT
+========================================= */
+
+.player-pane {
+    display: none;
+}
+
+.player-pane.active {
+    display: block;
+}
+
+.player-pane iframe {
     display: block;
 
     width: 100%;
@@ -253,13 +294,47 @@ main {
 }
 
 /* =========================================
+   SUNDAY GIRL BANDCAMP PANEL
+========================================= */
+
+.bandcamp-link {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    min-height: 352px;
+
+    padding: 24px;
+
+    background: #fff;
+    color: #171717;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.bandcamp-link a {
+    color: #97501e;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.bandcamp-link a:hover {
+    color: #171717;
+}
+
+/* =========================================
    RELEASE LINKS
 ========================================= */
 
 .release-links {
     display: flex;
     flex-wrap: wrap;
-
     gap: 22px;
 
     margin-top: 18px;
@@ -323,9 +398,7 @@ footer {
 
     .intro {
         grid-template-columns: 1fr;
-
         gap: 14px;
-
         padding: 30px 0;
     }
 
@@ -355,10 +428,6 @@ footer {
         font-size: 1.25rem;
     }
 
-    .release-player iframe {
-        height: 352px;
-    }
-
     .release-links {
         gap: 16px;
     }
@@ -385,8 +454,12 @@ footer {
         padding: 12px;
     }
 
-    .release-player iframe {
+    .player-pane iframe {
         height: 300px;
+    }
+
+    .bandcamp-link {
+        min-height: 300px;
     }
 
     .release-links {
@@ -406,7 +479,8 @@ footer {
     }
 
     .site-nav a,
-    .release-links a {
+    .release-links a,
+    .player-tab {
         transition: none;
     }
 
@@ -434,11 +508,14 @@ footer {
 
     <nav class="site-nav" aria-label="Main navigation">
 
-        <a href="album.html">Music</a>
+        <!-- <a href="album.html">Music</a> -->
 
         <a href="presskit.html">Press Kit</a>
 
-        <a href="about.html">Contact</a>
+          <a href="https://bandcamp.com/contact?b=742412910&n=SAJA+Project&email=sally%40abovethemandrake.co.nz"
+                target="_blank"
+                class="contact-link"
+            >Contact</a>
 
     </nav>
 
@@ -450,13 +527,11 @@ footer {
 
 <main>
 
-    <!-- =====================================
-         MASTHEAD
-    ===================================== -->
-
     <div class="hero-background">
 
-        <!-- INTRODUCTION -->
+        <!-- =================================
+             INTRODUCTION
+        ================================= -->
 
         <section class="intro" aria-label="Introduction">
 
@@ -502,30 +577,79 @@ footer {
 
                     <h2>Sunday Girl</h2>
 
+                    <!-- PLATFORM TABS -->
+
+                    <div
+                        class="player-tabs"
+                        role="group"
+                        aria-label="Sunday Girl listening platform">
+
+                        <button
+                            type="button"
+                            class="player-tab active"
+                            data-platform="spotify"
+                            aria-pressed="true">
+                            Spotify
+                        </button>
+
+                        <button
+                            type="button"
+                            class="player-tab"
+                            data-platform="bandcamp"
+                            aria-pressed="false">
+                            Bandcamp
+                        </button>
+
+                    </div>
+
                     <!-- SPOTIFY SINGLE -->
 
-                    <iframe
-                        title="Sunday Girl on Spotify"
-                        src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
-                        width="100%"
-                        height="352"
-                        loading="lazy"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                    </iframe>
+                    <div
+                        class="player-pane active"
+                        data-pane="spotify">
 
-                    <!-- RELEASE LINKS -->
+                        <iframe
+                            title="Sunday Girl on Spotify"
+                            src="https://open.spotify.com/embed/track/1Hku7ux9QRDGdwWyJwBqVn?utm_source=generator"
+                            width="100%"
+                            height="352"
+                            loading="lazy"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                        </iframe>
+
+                    </div>
+
+                    <!-- BANDCAMP SINGLE -->
+
+                    <div
+                        class="player-pane"
+                        data-pane="bandcamp">
+
+                        <div class="bandcamp-link">
+
+                            <span>
+                                Listen to and download
+                                <em>Sunday Girl</em>
+                                on Bandcamp.
+                            </span>
+
+                            <a
+                                href="https://sajaproject.bandcamp.com/track/sunday-girl"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Open Bandcamp ↗
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RELEASE PAGE -->
 
                     <div class="release-links">
 
                         <a href="sunday-girl.html">
-                            Explore single ↗
-                        </a>
-
-                        <a
-                            href="https://sajaproject.bandcamp.com/track/sunday-girl"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Bandcamp ↗
+                            Details ↗
                         </a>
 
                     </div>
@@ -544,30 +668,70 @@ footer {
 
                     <h2>SAJA Project [01]</h2>
 
+                    <!-- PLATFORM TABS -->
+
+                    <div
+                        class="player-tabs"
+                        role="group"
+                        aria-label="Album listening platform">
+
+                        <button
+                            type="button"
+                            class="player-tab active"
+                            data-platform="spotify"
+                            aria-pressed="true">
+                            Spotify
+                        </button>
+
+                        <button
+                            type="button"
+                            class="player-tab"
+                            data-platform="bandcamp"
+                            aria-pressed="false">
+                            Bandcamp
+                        </button>
+
+                    </div>
+
                     <!-- SPOTIFY ALBUM -->
 
-                    <iframe
-                        title="SAJA Project 01 on Spotify"
-                        src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
-                        width="100%"
-                        height="352"
-                        loading="lazy"
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                    </iframe>
+                    <div
+                        class="player-pane active"
+                        data-pane="spotify">
 
-                    <!-- RELEASE LINKS -->
+                        <iframe
+                            title="SAJA Project 01 on Spotify"
+                            src="https://open.spotify.com/embed/album/1uM5lSf7tSYpBMCJ3xJLT3?utm_source=generator"
+                            width="100%"
+                            height="352"
+                            loading="lazy"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                        </iframe>
+
+                    </div>
+
+                    <!-- BANDCAMP ALBUM -->
+
+                    <div
+                        class="player-pane"
+                        data-pane="bandcamp">
+
+                        <iframe
+                            title="SAJA Project 01 on Bandcamp"
+                            data-src="https://bandcamp.com/EmbeddedPlayer/album=2354495077/size=large/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+                            width="100%"
+                            height="352"
+                            loading="lazy">
+                        </iframe>
+
+                    </div>
+
+                    <!-- RELEASE PAGE -->
 
                     <div class="release-links">
 
                         <a href="album.html">
-                            Explore album ↗
-                        </a>
-
-                        <a
-                            href="https://sajaproject.bandcamp.com/album/saja-project-01"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Bandcamp ↗
+                           Details ↗
                         </a>
 
                     </div>
@@ -593,6 +757,86 @@ footer {
     Photography by Sabine Mignault
 
 </footer>
+
+<!-- =========================================
+     PLAYER TAB JAVASCRIPT
+========================================= -->
+
+<script>
+
+document.querySelectorAll('.release-player').forEach(function (release) {
+
+    const tabs = release.querySelectorAll('.player-tab');
+    const panes = release.querySelectorAll('.player-pane');
+
+    tabs.forEach(function (tab) {
+
+        tab.addEventListener('click', function () {
+
+            const platform = tab.dataset.platform;
+
+            // Update active tabs
+
+            tabs.forEach(function (t) {
+
+                const active = t === tab;
+
+                t.classList.toggle('active', active);
+
+                t.setAttribute(
+                    'aria-pressed',
+                    String(active)
+                );
+
+            });
+
+            // Update visible player
+
+            panes.forEach(function (pane) {
+
+                const active = pane.dataset.pane === platform;
+
+                pane.classList.toggle('active', active);
+
+                const iframe = pane.querySelector('iframe');
+
+                if (iframe) {
+
+                    if (active) {
+
+                        // Load the selected player.
+
+                        if (!iframe.getAttribute('src') && iframe.dataset.src) {
+
+                            iframe.src = iframe.dataset.src;
+
+                        }
+
+                    } else {
+
+                        // Stop playback when switching away.
+
+                        if (iframe.hasAttribute('src')) {
+
+                            iframe.dataset.src = iframe.getAttribute('src');
+
+                            iframe.removeAttribute('src');
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    });
+
+});
+
+</script>
 
 </body>
 
