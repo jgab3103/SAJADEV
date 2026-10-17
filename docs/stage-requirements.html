@@ -1,0 +1,553 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description"
+      content="SAJA Project — Stage Requirements and Equipment">
+
+<title>SAJA Project — Stage Requirements</title>
+
+<link rel="icon" href="assets/favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap"
+      rel="stylesheet">
+
+<style>
+/* =========================================
+   COLOURS
+========================================= */
+:root {
+    --ink: #151515;
+    --paper: #ffffff;
+    --orange: #e99a47;
+    --muted: #746f69;
+    --line: #dedbd6;
+    --nav: #26161a;
+    --footer: #0a0908;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 4px;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 14px max(24px, calc((100vw - 1160px) / 2));
+
+    background: var(--nav);
+    color: #f4f1eb;
+
+    border-bottom: 1px solid #49333d;
+}
+
+.site-header img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.site-nav {
+    display: flex;
+    gap: 26px;
+
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.site-nav a {
+    transition: color .2s ease;
+}
+
+.site-nav a:hover {
+    color: var(--orange);
+}
+
+/* =========================================
+   MAIN
+========================================= */
+main {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px 70px;
+}
+
+.page-intro {
+    padding: 50px 0 38px;
+}
+
+.eyebrow {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-weight: 800;
+    color: #a45e24;
+    margin: 0 0 12px;
+}
+
+.page-intro h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -.045em;
+    margin: 0 0 18px;
+}
+
+.page-intro h1 span {
+    color: var(--orange);
+}
+
+.page-intro p:not(.eyebrow) {
+    max-width: 750px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+.section-heading {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* =========================================
+   EQUIPMENT TABLE
+========================================= */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .95rem;
+}
+
+.equipment-table thead {
+    background: #26161a;
+    color: #ffffff;
+}
+
+.equipment-table th {
+    text-align: left;
+    padding: 15px 18px;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.equipment-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+.equipment-table tbody tr:nth-child(even) {
+    background: #faf8f5;
+}
+
+.equipment-table tbody tr:hover {
+    background: #f4f1eb;
+}
+
+.equipment-table .category-row td {
+    background: #eee9e4;
+    color: #4a3036;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 12px 18px;
+}
+
+.equipment-table .qty {
+    width: 110px;
+    text-align: center;
+}
+
+.equipment-table .item {
+    font-weight: 700;
+}
+
+/* =========================================
+   NOTES
+========================================= */
+.stage-notes {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+
+.stage-notes h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin: 0 0 16px;
+}
+
+.stage-notes p {
+    max-width: 850px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #625c55;
+    margin: 0 0 14px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+    background: var(--footer);
+    color: #f4f1eb;
+    text-align: center;
+    padding: 26px;
+    font-size: .75rem;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 560px) {
+    .site-header {
+        padding: 12px 20px;
+    }
+
+    .site-nav {
+        gap: 15px;
+        font-size: .7rem;
+    }
+
+    main {
+        padding: 0 18px 50px;
+    }
+
+    .page-intro {
+        padding: 30px 0 28px;
+    }
+
+    .page-intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .equipment-table {
+        font-size: .85rem;
+    }
+
+    .equipment-table th,
+    .equipment-table td {
+        padding: 12px 10px;
+    }
+
+    .equipment-table .qty {
+        width: 65px;
+    }
+}
+
+
+/* =========================================
+   STAGE DIAGRAM
+========================================= */
+.stage-diagram {
+    margin-top: 55px;
+    margin-bottom: 50px;
+}
+
+.stage-diagram img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+}
+
+@media (max-width: 560px) {
+    .stage-diagram {
+        margin-top: 35px;
+        margin-bottom: 35px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+<header class="site-header">
+
+    <a href="index.html" aria-label="SAJA Project home">
+        <img
+            src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
+            alt="SAJA Project symbol">
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+        <a href="presskit.html">Press Kit</a>
+
+        <a href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-link">Contact</a>
+    </nav>
+
+</header>
+
+<main>
+
+<!-- =========================================
+     INTRODUCTION
+========================================= -->
+<section class="page-intro">
+
+    <p class="eyebrow">SAJA Project · Live Performance</p>
+
+    <h1>Stage Requirements<span>.</span></h1>
+
+    <p>
+        Equipment and technical requirements for SAJA Project
+        live performances.
+    </p>
+
+</section>
+
+<!-- =========================================
+     EQUIPMENT LIST
+========================================= -->
+<section aria-label="Stage equipment">
+
+    <div class="section-heading">
+        <h2>Equipment List</h2>
+    </div>
+
+    <div class="table-wrapper">
+
+        <table class="equipment-table">
+
+            <thead>
+                <tr>
+                    <th>Equipment</th>
+                    <th>Category</th>
+                    <th class="qty">Quantity</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- INSTRUMENTS -->
+                <tr class="category-row">
+                    <td colspan="3">Instruments</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Maton Guitar</td>
+                    <td>Acoustic Guitar</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <!-- AMPLIFICATION -->
+                <tr class="category-row">
+                    <td colspan="3">Amplification</td>
+                </tr>
+
+                <tr>
+                    <td class="item">AER Alpha</td>
+                    <td>Acoustic Guitar Amplifier</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <!-- PEDALS -->
+                <tr class="category-row">
+                    <td colspan="3">Guitar Pedals & Effects</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Strymon Timeline</td>
+                    <td>Delay</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Strymon Cloudburst</td>
+                    <td>Reverb</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Meris Mercury7</td>
+                    <td>Reverb</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Chase Bliss MOOD MKII</td>
+                    <td>Granular / Micro-Looping Effects</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Chase Bliss Blooper</td>
+                    <td>Looping / Effects</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Boss GT-1000CORE</td>
+                    <td>Multi-Effects Processor</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Source Audio EQ2</td>
+                    <td>Equaliser</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Morningstar MC8 Pro</td>
+                    <td>MIDI Foot Controller</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <!-- ELECTRONICS -->
+                <tr class="category-row">
+                    <td colspan="3">Electronic Instruments & Looping</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Elektron Octatrack MKII</td>
+                    <td>Performance Sampler / Sequencer</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Elektron Digitakt</td>
+                    <td>Sampler / Drum Machine</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <tr>
+                    <td class="item">RC 505 Loop Station</td>
+                    <td>Vocal / Live Looping</td>
+                    <td class="qty">1</td>
+                </tr>
+
+                <!-- MONITORING AND MICROPHONES -->
+                <tr class="category-row">
+                    <td colspan="3">Monitoring & Microphones</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Foldback Monitors</td>
+                    <td>Stage Monitoring</td>
+                    <td class="qty">2</td>
+                </tr>
+
+                <tr>
+                    <td class="item">Shure SM57</td>
+                    <td>Dynamic Microphone</td>
+                    <td class="qty">1</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     STAGE DIAGRAM
+========================================= -->
+<section class="stage-diagram">
+
+    <div class="section-heading">
+        <h2>Stage Layout</h2>
+    </div>
+
+    <img
+        src="assets/img/stage.png"
+        alt="SAJA Project stage layout showing vocals stage left, guitar stage right, pedalboard, electronic instruments and two foldback monitors"
+        loading="lazy">
+
+</section>
+
+
+<!-- =========================================
+     TECHNICAL NOTES
+========================================= -->
+<section class="stage-notes">
+
+    <h2>Technical Notes</h2>
+
+    <p>
+        SAJA Project uses a combination of acoustic instruments,
+        live looping, electronic instruments and effects.
+        Equipment configuration may vary depending on the
+        performance format and venue.
+    </p>
+
+    <p>
+        Please contact us to discuss stage layout, audio connections,
+        monitoring and any additional technical requirements.
+    </p>
+
+</section>
+
+</main>
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+<footer>
+    © SAJA 2026 &nbsp;·&nbsp;
+    Photography by Sabine Mignault
+</footer>
+
+</body>
+</html>
