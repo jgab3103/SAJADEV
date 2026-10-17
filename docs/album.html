@@ -1,73 +1,45 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta name="description"
-      content="SAJA Project [01] — the debut studio album by SAJA Project. Listen, explore the tracks and discover the music.">
-
+<meta name="description" content="SAJA Project [01] — the debut studio album by SAJA Project. Listen, explore the tracks and discover the music.">
 <title>SAJA Project — SAJA Project [01]</title>
-
 <link rel="icon" href="assets/favicon.ico">
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap"
-    rel="stylesheet">
-
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
 /* =========================================
-   GLOBAL
+   DARK SAJA PALETTE
 ========================================= */
-
 :root {
-    --ink: #151515;
-    --paper: #f4f1eb;
+    --ink: #f4f1eb;
+    --paper: #0a0908;
     --orange: #e99a47;
-    --muted: #746f69;
-    --line: #d6cec3;
-    --nav: #26161A;
-    --footer: #0A0908;
+    --muted: #b8abb2;
+    --line: #483b43;
+    --nav: #26161a;
+    --footer: #0a0908;
+    --panel: #151115;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
     font-family: 'Nunito', sans-serif;
 }
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-a:focus-visible,
-button:focus-visible {
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+a:focus-visible, button:focus-visible {
     outline: 3px solid var(--orange);
     outline-offset: 4px;
 }
-
 img {
     display: block;
     width: 100%;
@@ -75,43 +47,32 @@ img {
 }
 
 /* =========================================
-   NAVIGATION — MATCHES HOMEPAGE
+   NAVIGATION
 ========================================= */
-
 .site-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-
     padding: 14px max(24px, calc((100vw - 1160px) / 2));
-
     background: var(--nav);
-    color: var(--paper);
-
-    border-bottom: 1px solid #3b342a;
+    color: var(--ink);
+    border-bottom: 1px solid #49333d;
 }
-
 .site-header img {
     width: 52px;
     height: 52px;
     object-fit: contain;
 }
-
 .site-nav {
     display: flex;
     gap: 26px;
-
     font-size: .78rem;
     font-weight: 800;
     letter-spacing: .12em;
     text-transform: uppercase;
 }
-
-.site-nav a {
-    transition: color .2s ease;
-}
-
+.site-nav a { transition: color .2s ease; }
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
     color: var(--orange);
@@ -120,30 +81,26 @@ img {
 /* =========================================
    MAIN
 ========================================= */
-
 main {
     max-width: 1160px;
     margin: auto;
     padding: 0 24px;
 }
-
 .eyebrow {
     font-size: .7rem;
     text-transform: uppercase;
     letter-spacing: .18em;
     font-weight: 800;
-    color: #a45e24;
+    color: var(--orange);
     margin: 0 0 12px;
 }
 
 /* =========================================
    ALBUM INTRODUCTION
 ========================================= */
-
 .album-intro {
     padding: 46px 0 34px;
 }
-
 .album-intro h1 {
     font-family: 'Varela Round', sans-serif;
     font-size: clamp(2.4rem, 5vw, 4.5rem);
@@ -152,144 +109,95 @@ main {
     letter-spacing: -.045em;
     margin: 0 0 12px;
 }
-
 .album-intro h1 span {
     color: var(--orange);
 }
-
 .album-intro p:not(.eyebrow) {
     font-size: 1.05rem;
     line-height: 1.65;
-    color: #625c55;
+    color: var(--muted);
     margin: 0;
 }
 
 /* =========================================
    ALBUM FEATURE
 ========================================= */
-
 .album-feature {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     gap: 42px;
     align-items: start;
-
     padding: 30px;
-
-    background: #171313;
-    color: var(--paper);
-
-    border: 1px solid rgba(255,255,255,0.08);
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid #40333c;
     border-radius: 8px;
-
     margin-bottom: 42px;
 }
 
 /* =========================================
    PLAYER
 ========================================= */
-
 .album-player {
     min-width: 0;
     width: 100%;
 }
-
 .player-tabs {
     display: flex;
     gap: 24px;
-
-    border-bottom: 1px solid rgba(255,255,255,0.25);
-
+    border-bottom: 1px solid rgba(255,255,255,.25);
     margin-bottom: 18px;
 }
-
 .player-tab {
     background: transparent;
-
     border: none;
     border-bottom: 2px solid transparent;
-
-    color: #aaa;
-
+    color: #a99ca4;
     padding: 9px 0 11px;
-
     font-family: 'Nunito', sans-serif;
     font-size: .85rem;
     font-weight: 800;
-
     cursor: pointer;
-
     transition: color .2s ease;
 }
-
 .player-tab.active {
     color: var(--orange);
     border-bottom-color: var(--orange);
 }
-
-.player-tab:hover {
-    color: #fff;
-}
-
-.player-panel {
-    display: none;
-}
-
-.player-panel.active {
-    display: block;
-}
-
+.player-tab:hover { color: #fff; }
+.player-panel { display: none; }
+.player-panel.active { display: block; }
 .player-panel iframe {
     display: block;
     width: 100%;
-
     border: 0;
     border-radius: 12px;
 }
-
-.spotify-frame {
-    height: 450px;
-}
-
-.bandcamp-frame {
-    height: 687px;
-}
+.spotify-frame { height: 450px; }
+.bandcamp-frame { height: 687px; }
 
 /* =========================================
    TRACKLIST
 ========================================= */
-
-.tracklist {
-    padding-top: 5px;
-}
-
+.tracklist { padding-top: 5px; }
 .tracklist h2 {
     font-family: 'Varela Round', sans-serif;
     font-size: 1.45rem;
     font-weight: 400;
-
     margin: 0 0 20px;
 }
-
 .tracklist ol {
     margin: 0;
     padding-left: 28px;
-
     color: #e5e0d8;
-
     font-size: 1rem;
     line-height: 1.7;
 }
-
 .tracklist li {
     padding: 8px 0 8px 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,.12);
 }
-
-.tracklist li:last-child {
-    border-bottom: none;
-}
-
+.tracklist li:last-child { border-bottom: none; }
 .tracklist li::marker {
     color: var(--orange);
     font-weight: 800;
@@ -298,83 +206,50 @@ main {
 /* =========================================
    LISTENING INFORMATION
 ========================================= */
-
 .listening-info {
     max-width: 800px;
     margin: 0 auto;
     padding: 14px 0 32px;
     text-align: center;
 }
-
 .listening-info p {
     font-size: 1.02rem;
     line-height: 1.8;
-    color: #625c55;
+    color: #d4cbd0;
     margin: 0 0 14px;
 }
-
 .listening-info a {
-    color: #97501e;
+    color: var(--orange);
     font-weight: 800;
     border-bottom: 1px solid currentColor;
 }
-
-.listening-info a:hover {
-    color: var(--ink);
-}
+.listening-info a:hover { color: #fff; }
 
 /* =========================================
    MUSIC PLATFORM LINKS
 ========================================= */
-
 .music-links {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
     gap: 34px;
-
     padding: 4px 0 52px;
 }
-
 .music-links a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
     font-size: 2rem;
-    color: var(--nav);
-
-    transition:
-        color .2s ease,
-        transform .2s ease;
+    color: var(--ink);
+    transition: color .2s ease, transform .2s ease;
 }
-
-.music-links a:hover {
-    transform: translateY(-3px);
-}
-
-.music-links a.spotify:hover {
-    color: #1db954;
-}
-
-.music-links a.bandcamp:hover {
-    color: #629aa9;
-}
-
-.music-links a.youtube:hover {
-    color: #ff0000;
-}
-
-.music-links a.apple:hover {
-    color: #a2aaad;
-}
-
-.music-links a.tidal:hover {
-    color: #008c91;
-}
-
+.music-links a:hover { transform: translateY(-3px); }
+.music-links a.spotify:hover { color: #1db954; }
+.music-links a.bandcamp:hover { color: #629aa9; }
+.music-links a.youtube:hover { color: #ff0000; }
+.music-links a.apple:hover { color: #a2aaad; }
+.music-links a.tidal:hover { color: #00ffff; }
 .music-links a.tidal svg {
     width: 2rem;
     height: 2rem;
@@ -384,143 +259,74 @@ main {
 /* =========================================
    CREDITS
 ========================================= */
-
 .credits {
     border-top: 1px solid var(--line);
     padding: 28px 0 46px;
     text-align: center;
 }
-
 .credits h2 {
     font-family: 'Varela Round', sans-serif;
     font-size: 1.2rem;
     font-weight: 400;
     margin: 0 0 18px;
 }
-
 .credits p {
     font-size: .88rem;
     line-height: 1.9;
-    color: #625c55;
+    color: var(--muted);
     margin: 0;
 }
 
 /* =========================================
-   FOOTER — MATCHES HOMEPAGE
+   FOOTER
 ========================================= */
-
 footer {
     background: var(--footer);
-    color: var(--paper);
-
+    color: var(--ink);
     text-align: center;
     padding: 26px;
     font-size: .75rem;
-
     margin-top: 0;
 }
 
 /* =========================================
-   TABLET
+   RESPONSIVE
 ========================================= */
-
 @media (max-width: 850px) {
-
     .album-feature {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-
-    .tracklist {
-        padding-top: 0;
-    }
-
+    .tracklist { padding-top: 0; }
 }
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 560px) {
-
-    .site-header {
-        padding: 12px 20px;
-    }
-
-    .site-nav {
-        gap: 15px;
-        font-size: .7rem;
-    }
-
-    main {
-        padding: 0 18px;
-    }
-
-    .album-intro {
-        padding: 30px 0 24px;
-    }
-
-    .album-intro h1 {
-        font-size: 2.5rem;
-    }
-
-    .album-feature {
-        padding: 16px;
-        gap: 28px;
-    }
-
-    .spotify-frame {
-        height: 380px;
-    }
-
-    .bandcamp-frame {
-        height: 600px;
-    }
-
-    .tracklist h2 {
-        font-size: 1.25rem;
-    }
-
-    .tracklist ol {
-        font-size: .94rem;
-    }
-
+    .site-header { padding: 12px 20px; }
+    .site-nav { gap: 15px; font-size: .7rem; }
+    main { padding: 0 18px; }
+    .album-intro { padding: 30px 0 24px; }
+    .album-intro h1 { font-size: 2.5rem; }
+    .album-feature { padding: 16px; gap: 28px; }
+    .spotify-frame { height: 380px; }
+    .bandcamp-frame { height: 600px; }
+    .tracklist h2 { font-size: 1.25rem; }
+    .tracklist ol { font-size: .94rem; }
     .music-links {
         gap: 26px;
         padding-bottom: 40px;
     }
-
-    .music-links a {
-        font-size: 1.7rem;
-    }
-
+    .music-links a { font-size: 1.7rem; }
     .music-links a.tidal svg {
         width: 1.7rem;
         height: 1.7rem;
     }
-
 }
-
-/* =========================================
-   REDUCED MOTION
-========================================= */
-
 @media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
+    html { scroll-behavior: auto; }
     .site-nav a,
     .player-tab,
-    .music-links a {
-        transition: none;
-    }
-
+    .music-links a { transition: none; }
 }
-
 </style>
-
 </head>
 
 <body>
@@ -528,29 +334,21 @@ footer {
 <!-- =========================================
      NAVIGATION
 ========================================= -->
-
 <header class="site-header">
-
     <a href="index.html" aria-label="SAJA Project home">
-
         <img
             src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png"
             alt="SAJA Project symbol">
-
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
-
-
         <a href="presskit.html">Press Kit</a>
-
-              <a href="https://bandcamp.com/contact?b=742412910&n=SAJA+Project&email=sally%40abovethemandrake.co.nz"
-                target="_blank"
-                class="contact-link"
-            >Contact</a>
-
+        <a
+            href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link">Contact</a>
     </nav>
-
 </header>
 
 <main>
@@ -558,64 +356,37 @@ footer {
 <!-- =========================================
      ALBUM INTRODUCTION
 ========================================= -->
-
 <section class="album-intro">
-
-    <p class="eyebrow">
-        Debut studio album · 2026
-    </p>
-
-    <h1>
-        SAJA Project [01]<span>.</span>
-    </h1>
-
-    <p>
-        
-    </p>
-
+    <p class="eyebrow">Debut studio album · 2026</p>
+    <h1>SAJA Project [01]<span>.</span></h1>
+    <p></p>
 </section>
 
 <!-- =========================================
      ALBUM PLAYER AND TRACKLIST
 ========================================= -->
-
 <section class="album-feature" aria-label="Album player and tracklist">
-
-    <!-- PLAYER -->
 
     <div class="album-player">
 
-        <div
-            class="player-tabs"
-            role="group"
-            aria-label="Album listening platform">
-
+        <div class="player-tabs" role="group" aria-label="Album listening platform">
             <button
                 type="button"
                 class="player-tab active"
                 data-player="spotify"
-                aria-pressed="true">
-                Spotify
-            </button>
+                aria-pressed="true">Spotify</button>
 
             <button
                 type="button"
                 class="player-tab"
                 data-player="bandcamp"
-                aria-pressed="false">
-                Bandcamp
-            </button>
-
+                aria-pressed="false">Bandcamp</button>
         </div>
 
         <div class="player-content">
 
             <!-- SPOTIFY -->
-
-            <div
-                class="player-panel active"
-                data-player-panel="spotify">
-
+            <div class="player-panel active" data-player-panel="spotify">
                 <iframe
                     class="spotify-frame"
                     title="SAJA Project 01 on Spotify"
@@ -625,15 +396,10 @@ footer {
                     loading="lazy"
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
                 </iframe>
-
             </div>
 
             <!-- BANDCAMP -->
-
-            <div
-                class="player-panel"
-                data-player-panel="bandcamp">
-
+            <div class="player-panel" data-player-panel="bandcamp">
                 <iframe
                     class="bandcamp-frame"
                     title="SAJA Project 01 on Bandcamp"
@@ -642,37 +408,23 @@ footer {
                     height="687"
                     loading="lazy">
                 </iframe>
-
             </div>
 
         </div>
-
     </div>
 
     <!-- TRACKLIST -->
-
     <div class="tracklist">
-
         <h2>Tracklist</h2>
-
         <ol>
-
             <li>Kiss Me Out From The Cold</li>
-
             <li>A Little Motion</li>
-
             <li>Apart In the Winter Sun</li>
-
             <li>Don't Let Met Go</li>
-
             <li>La Valse</li>
-
             <li>Feel Your Touch</li>
-
             <li>Softly As A Dream</li>
-
         </ol>
-
     </div>
 
 </section>
@@ -680,9 +432,7 @@ footer {
 <!-- =========================================
      LISTENING AND CD INFORMATION
 ========================================= -->
-
 <section class="listening-info">
-
     <p>
         We hope you love our music. You can listen to it
         in all the usual places. But ideally, we would love
@@ -690,9 +440,7 @@ footer {
         <a
             href="https://sajaproject.bandcamp.com/album/saja-project-01"
             target="_blank"
-            rel="noopener noreferrer">
-            Bandcamp
-        </a>.
+            rel="noopener noreferrer">Bandcamp</a>.
     </p>
 
     <p>
@@ -700,20 +448,14 @@ footer {
         <a
             href="https://sajaproject.bandcamp.com/contact?b=742412910&amp;n=SAJA%20Project&amp;email=sally%40abovethemandrake.co.nz"
             target="_blank"
-            rel="noopener noreferrer">
-            here
-        </a>.
+            rel="noopener noreferrer">here</a>.
     </p>
-
 </section>
 
 <!-- =========================================
      MUSIC PLATFORM LINKS
 ========================================= -->
-
 <div class="music-links" aria-label="Listen on other platforms">
-
-    <!-- SPOTIFY -->
 
     <a
         href="https://open.spotify.com/album/1uM5lSf7tSYpBMCJ3xJLT3?si=VQGkIORrSPy_40YLU6ytnw"
@@ -722,12 +464,8 @@ footer {
         class="spotify"
         title="Spotify"
         aria-label="Listen on Spotify">
-
         <i class="fab fa-spotify" aria-hidden="true"></i>
-
     </a>
-
-    <!-- BANDCAMP -->
 
     <a
         href="https://sajaproject.bandcamp.com/album/saja-project-01"
@@ -736,12 +474,8 @@ footer {
         class="bandcamp"
         title="Bandcamp"
         aria-label="Listen on Bandcamp">
-
         <i class="fab fa-bandcamp" aria-hidden="true"></i>
-
     </a>
-
-    <!-- YOUTUBE -->
 
     <a
         href="https://www.youtube.com/watch?v=iNaWayU7Jkc&amp;list=OLAK5uy_mAFncgSwvRT4ZnBA3nvJ7FU0uScwwXCIU"
@@ -750,12 +484,8 @@ footer {
         class="youtube"
         title="YouTube"
         aria-label="Listen on YouTube">
-
         <i class="fab fa-youtube" aria-hidden="true"></i>
-
     </a>
-
-    <!-- APPLE MUSIC -->
 
     <a
         href="https://music.apple.com/au/album/kiss-me-out-from-the-cold/1860548408?i=1860548409"
@@ -764,12 +494,8 @@ footer {
         class="apple"
         title="Apple Music"
         aria-label="Listen on Apple Music">
-
         <i class="fab fa-apple" aria-hidden="true"></i>
-
     </a>
-
-    <!-- TIDAL -->
 
     <a
         href="https://tidal.com/album/534468002"
@@ -778,19 +504,13 @@ footer {
         class="tidal"
         title="TIDAL"
         aria-label="Listen on TIDAL">
-
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true">
-
+        <svg viewBox="0 0 24 24" aria-hidden="true">
             <polygon points="3,7 7,3 11,7 7,11"/>
             <polygon points="13,7 17,3 21,7 17,11"/>
             <polygon points="8,12 12,8 16,12 12,16"/>
             <polygon points="3,17 7,13 11,17 7,21"/>
             <polygon points="13,17 17,13 21,17"/>
-
         </svg>
-
     </a>
 
 </div>
@@ -798,19 +518,13 @@ footer {
 <!-- =========================================
      CREDITS
 ========================================= -->
-
 <section class="credits">
-
     <h2>Album credits</h2>
-
     <p>
-        Tracks 1, 3, 4, 6, 7: Gabriel J, Howe S
-        <br>
-        Tracks 2, 5: Gabriel J, Howe S, Mignault R
-        <br>
+        Tracks 1, 3, 4, 6, 7: Gabriel J, Howe S<br>
+        Tracks 2, 5: Gabriel J, Howe S, Mignault R<br>
         Mixing and Mastering: Jason Holecliffe
     </p>
-
 </section>
 
 </main>
@@ -818,98 +532,58 @@ footer {
 <!-- =========================================
      FOOTER
 ========================================= -->
-
 <footer>
-
     © SAJA 2026 &nbsp;·&nbsp;
     Photography by Sabine Mignault
-
 </footer>
 
 <!-- =========================================
      PLAYER TAB JAVASCRIPT
 ========================================= -->
-
 <script>
-
 (function () {
 
     const player = document.querySelector('.album-player');
-
     const tabs = player.querySelectorAll('.player-tab');
-
     const panels = player.querySelectorAll('.player-panel');
 
     tabs.forEach(function (tab) {
-
         tab.addEventListener('click', function () {
 
             const platform = tab.dataset.player;
 
-            // Update active tabs.
-
             tabs.forEach(function (t) {
-
                 const active = t === tab;
-
                 t.classList.toggle('active', active);
-
-                t.setAttribute(
-                    'aria-pressed',
-                    String(active)
-                );
-
+                t.setAttribute('aria-pressed', String(active));
             });
 
-            // Update active player.
-
             panels.forEach(function (panel) {
-
-                const active =
-                    panel.dataset.playerPanel === platform;
-
+                const active = panel.dataset.playerPanel === platform;
                 panel.classList.toggle('active', active);
 
                 const iframe = panel.querySelector('iframe');
-
-                if (!iframe) {
-                    return;
-                }
+                if (!iframe) return;
 
                 if (active) {
-
                     // Load selected player when required.
-
                     if (!iframe.getAttribute('src') && iframe.dataset.src) {
-
                         iframe.src = iframe.dataset.src;
-
                     }
-
                 } else {
-
                     // Stop playback when switching platforms.
-
                     if (iframe.hasAttribute('src')) {
-
                         iframe.dataset.src = iframe.getAttribute('src');
-
                         iframe.removeAttribute('src');
-
                     }
-
                 }
-
             });
 
         });
-
     });
 
 })();
-
 </script>
 
 </body>
-
 </html>
