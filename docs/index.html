@@ -126,28 +126,33 @@ main {
 .hero-background {
     position: relative;
     isolation: isolate;
-    background-color: #0A0908; /* Matches footer beneath the photograph */
+    background: #0A0908;
+    margin: 0 calc(50% - 50vw);
+    padding: 0 max(24px, calc((100vw - 1160px) / 2));
+}
 
+/* Photograph fades to the exact background/footer colour. */
+.hero-background::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: max(900px, 68vw);
+    z-index: -1;
+    pointer-events: none;
     background-image:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,0.03) 0%,
-            rgba(0,0,0,0.08) 25%,
-            rgba(0,0,0,0.25) 50%,
-            rgba(0,0,0,0.60) 65%,
-            #0A0908 90%,
+        linear-gradient(to bottom,
+            rgba(10,9,8,0) 0%,
+            rgba(10,9,8,0.03) 30%,
+            rgba(10,9,8,0.18) 48%,
+            rgba(10,9,8,0.60) 65%,
+            rgba(10,9,8,0.92) 78%,
+            #0A0908 92%,
             #0A0908 100%
         ),
         url("assets/img/bg-masthead.jpg");
-
-    /* Keep the gradient fixed across the entire section while shifting only the photo. */
-    background-position: center center, center -160px;
-    background-size: 100% 100%, cover;
-    background-repeat: no-repeat, no-repeat;
-
-    margin: 0 calc(50% - 50vw);
-
-    padding: 0 max(24px, calc((100vw - 1160px) / 2));
+    background-position: center, center -120px;
+    background-size: 100% 100%, 100% auto;
+    background-repeat: no-repeat;
 }
 
 /* =========================================
@@ -155,29 +160,28 @@ main {
 ========================================= */
 
 .intro {
-    display: grid;
-
-    grid-template-columns:
-        minmax(180px, .8fr)
-        1.2fr;
-
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 35px;
-
-    padding: 45px 0;
+    justify-content: center;
+    text-align: center;
+    gap: 22px;
+    min-height: clamp(520px, 70vh, 680px);
+    padding: 45px 0 55px;
 }
 
 .intro img {
-    max-width: 330px;
+    width: min(800px, 100%);
+    max-width: 800px;
     height: auto;
     object-fit: contain;
 }
 
 .intro p {
     font-size: clamp(1rem, 1.65vw, 1.22rem);
-    line-height: 1.5;
-    max-width: 600px;
-    margin: 0;
+    line-height: 1.6;
+    max-width: 660px;
+    margin: 0 auto;
     color: #171717;
 }
 
@@ -187,7 +191,7 @@ main {
 
 .release-section {
     background: transparent;
-    padding: 20px 0 75px;
+    padding: 320px 0 75px;
 }
 
 .release-grid {
@@ -361,28 +365,31 @@ footer {
         padding: 0 18px;
     }
 
-    .hero-background {
-        padding: 0 18px;
-        background-position: center center, center -55px;
+    .hero-background { padding: 0 18px; }
+    .hero-background::before {
+        height: max(700px, 115vw);
+        background-position: center, center -35px;
     }
 
     .intro {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 30px 0;
+        gap: 18px;
+        min-height: clamp(440px, 65svh, 620px);
+        padding: 40px 0 45px;
     }
 
     .intro img {
-        max-width: 220px;
+        width: min(360px, 88%);
+        max-width: 360px;
     }
 
     .intro p {
         font-size: 1rem;
-        line-height: 1.5;
+        line-height: 1.55;
+        max-width: 540px;
     }
 
     .release-section {
-        padding: 20px 0 50px;
+        padding: 75px 0 50px;
     }
 
     .release-grid {
@@ -456,6 +463,68 @@ footer {
 
 }
 
+
+/* =========================================
+   LIVE VIDEO — BELOW FEATURED RELEASES
+========================================= */
+
+.home-live {
+    padding: 0 0 85px;
+    color: #f4f1eb;
+}
+.home-live-heading {
+    border-top: 1px solid rgba(255,255,255,.18);
+    padding-top: 24px;
+    margin: 0 0 28px;
+}
+.home-live-heading h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    margin: 0;
+}
+.home-live-heading h2 span { color: var(--orange); }
+.home-live-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+.home-live-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 8px;
+    background: rgba(10,9,8,.88);
+}
+.home-live-frame {
+    aspect-ratio: 16 / 9;
+    background: #171717;
+}
+.home-live-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.home-live-info { padding: 20px 22px 22px; }
+.home-live-info h3 {
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+}
+.home-live-info a {
+    font-size: .82rem;
+    font-weight: 800;
+    color: var(--orange);
+}
+.home-live-info a:hover { color: #fff; }
+@media (max-width: 760px) {
+    .home-live { padding-bottom: 55px; }
+    .home-live-grid { grid-template-columns: 1fr; gap: 20px; }
+    .home-live-info { padding: 16px; }
+}
+
 </style>
 
 </head>
@@ -477,7 +546,7 @@ footer {
     </a>
 
   <nav class="site-nav" aria-label="Main navigation">
-    <a href="live.html" aria-current="page">Live</a>
+    <!-- <a href="live.html">Live</a> -->
     <a href="presskit.html">Press Kit</a>
     <a href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz" target="_blank" rel="noopener noreferrer">Contact</a>
   </nav>
@@ -650,6 +719,33 @@ footer {
 
             </div>
 
+        </section>
+
+        <!-- =================================
+             LIVE PERFORMANCE
+        ================================= -->
+        <section class="home-live" aria-label="Live performance clips">
+            <div class="home-live-heading">
+                <h2>Live<span>.</span></h2>
+            </div>
+            <div class="home-live-grid">
+                <article class="home-live-card">
+                    <div class="home-live-frame">
+                        <iframe
+                            title="Apart In The Winter Sun — SAJA Project"
+                            src="https://www.youtube-nocookie.com/embed/x1EyMlvImvI"
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="home-live-info">
+                        <h3>Apart In The Winter Sun</h3>
+                        <a href="https://www.youtube.com/watch?v=x1EyMlvImvI" target="_blank" rel="noopener noreferrer">View original clip ↗</a>
+                    </div>
+                </article>
+            </div>
         </section>
 
     </div>
