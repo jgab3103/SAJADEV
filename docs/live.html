@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="SAJA Project — live performance videos and clips.">
+<title>SAJA Project — Live</title>
+<link rel="icon" href="assets/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&family=Varela+Round&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#151515;--paper:#fff;--orange:#e99a47;--muted:#746f69;--line:#dedbd6;--nav:#26161a;--footer:#0a0908}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Nunito',sans-serif}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px max(24px,calc((100vw - 1160px)/2));background:var(--nav);color:#f4f1eb;border-bottom:1px solid #49333d}
+.site-header img{display:block;width:52px;height:52px;object-fit:contain}
+.site-nav{display:flex;gap:26px;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.site-nav a{transition:color .2s ease}.site-nav a:hover{color:var(--orange)}
+main{max-width:1160px;margin:0 auto;padding:0 24px 80px;min-height:calc(100vh - 170px)}
+.page-intro{padding:50px 0 38px}.eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.18em;font-weight:800;color:#a45e24;margin:0 0 12px}
+.page-intro h1{font-family:'Varela Round',sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);font-weight:400;line-height:1.1;letter-spacing:-.045em;margin:0 0 18px}.page-intro h1 span{color:var(--orange)}
+.page-intro p:not(.eyebrow){max-width:750px;font-size:1.05rem;line-height:1.75;color:var(--muted);margin:0}
+.section-heading{border-top:1px solid var(--line);padding-top:18px;margin:0 0 24px}.section-heading h2{font-family:'Varela Round',sans-serif;font-size:1.4rem;font-weight:400;margin:0}
+.video-section{margin-bottom:50px}.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.video-card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#faf8f5;min-width:0}
+.video-frame{position:relative;aspect-ratio:16/9;background:#171717;overflow:hidden}.video-frame iframe{display:block;width:100%;height:100%;border:0}
+.video-frame.instagram{aspect-ratio:4/5;background:#f4f1eb}.video-frame.instagram iframe{background:#fff}
+.video-info{padding:20px 22px 22px}.video-type{font-size:.68rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800;color:#a45e24;margin:0 0 8px}
+.video-info h3{font-family:'Varela Round',sans-serif;font-size:1.2rem;font-weight:400;margin:0 0 8px}.video-info p{font-size:.9rem;line-height:1.65;color:var(--muted);margin:0}
+.video-info a{display:inline-block;margin-top:14px;font-size:.82rem;font-weight:800;color:#97501e;text-decoration:underline;text-underline-offset:3px}.video-info a:hover{color:var(--ink)}
+.empty-state{padding:32px;border:1px dashed var(--line);border-radius:8px;color:var(--muted);line-height:1.7;background:#faf8f5}
+footer{background:var(--footer);color:#f4f1eb;text-align:center;padding:26px;font-size:.75rem}
+@media(max-width:760px){.video-grid{grid-template-columns:1fr}.site-header{padding:12px 20px}.site-nav{gap:15px;font-size:.7rem}main{padding:0 18px 50px}.page-intro{padding:30px 0 28px}.page-intro h1{font-size:2.5rem}}
+@media(prefers-reduced-motion:reduce){.site-nav a{transition:none}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="index.html" aria-label="SAJA Project home"><img src="assets/img/Saja_submark_blk on orange_circle_3000x3000px.png" alt="SAJA Project symbol"></a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="live.html" aria-current="page">Live</a>
+    <a href="presskit.html">Press Kit</a>
+    <a href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz" target="_blank" rel="noopener noreferrer">Contact</a>
+  </nav>
+</header>
+<main>
+  <section class="page-intro">
+    <p class="eyebrow">SAJA Project · Performances</p>
+    <h1>Live<span>.</span></h1>
+    <p>Moments from our live performances, improvisations and sessions.</p>
+  </section>
+  <section class="video-section" aria-label="Live performance clips">
+    <div id="clips-grid" class="video-grid"></div>
+  </section>
+</main>
+<footer>© SAJA 2026 &nbsp;·&nbsp; Photography by Sabine Mignault</footer>
+<script>
+/* =====================================================
+   ADD YOUR CLIPS HERE
+
+   YouTube: paste a standard video URL, youtu.be URL,
+   Shorts URL, or just the video ID.
+
+   Instagram: paste a PUBLIC reel or post URL, e.g.
+   https://www.instagram.com/reel/YOUR_REEL_ID/
+
+   Example entries (remove the // to activate and
+   replace the example values with your own links):
+
+   { platform: 'youtube', title: 'Live improvisation',
+     url: 'https://www.youtube.com/watch?v=VIDEO_ID',
+     description: 'A moment from our live set.' },
+
+   { platform: 'instagram', title: 'Behind the scenes',
+     url: 'https://www.instagram.com/reel/REEL_ID/',
+     description: 'A short performance clip.' },
+===================================================== */
+const clips = [
+  // Add your real clips here.
+];
+
+function youtubeId(url){
+  if(/^[\w-]{11}$/.test(url)) return url;
+  try{
+    const u=new URL(url);
+    if(u.hostname==='youtu.be'||u.hostname.endsWith('.youtu.be')) return u.pathname.split('/')[1];
+    if(u.hostname==='youtube.com'||u.hostname==='www.youtube.com'||u.hostname==='m.youtube.com'){
+      return u.searchParams.get('v')||u.pathname.match(/^\/(?:shorts|embed|live)\/([\w-]{11})/)?.[1];
+    }
+  }catch(e){}
+  return null;
+}
+function instagramUrl(url){
+  try{
+    const u=new URL(url);
+    if(!['instagram.com','www.instagram.com'].includes(u.hostname)) return null;
+    const match=u.pathname.match(/^\/(reel|p|tv)\/([\w-]+)/);
+    return match ? `https://www.instagram.com/${match[1]}/${match[2]}/` : null;
+  }catch(e){return null;}
+}
+function makeClip(clip){
+  const isYouTube=clip.platform==='youtube';
+  const id=isYouTube?youtubeId(clip.url):null;
+  const ig=!isYouTube?instagramUrl(clip.url):null;
+  if(!id&&!ig)return null;
+  const card=document.createElement('article');card.className='video-card';
+  const frame=document.createElement('div');frame.className='video-frame'+(isYouTube?'':' instagram');
+  const iframe=document.createElement('iframe');
+  iframe.loading='lazy';iframe.title=clip.title||'SAJA Project video';
+  iframe.referrerPolicy='strict-origin-when-cross-origin';
+  iframe.src=isYouTube?`https://www.youtube-nocookie.com/embed/${id}`:`${ig}embed/`;
+  if(isYouTube){iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';iframe.allowFullscreen=true;}
+  frame.appendChild(iframe);card.appendChild(frame);
+  const info=document.createElement('div');info.className='video-info';
+  const title=document.createElement('h3');title.textContent=clip.title||'Live clip';info.appendChild(title);
+  if(clip.description){const desc=document.createElement('p');desc.textContent=clip.description;info.appendChild(desc);}
+  const link=document.createElement('a');link.href=clip.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='View original clip ↗';info.appendChild(link);
+  card.appendChild(info);return card;
+}
+const grid=document.getElementById('clips-grid');
+let count=0;
+for(const clip of clips){
+  const card=makeClip(clip);
+  if(card){grid.appendChild(card);count++;}
+}
+if(!count){
+  const empty=document.createElement('div');
+  empty.className='empty-state';
+  empty.textContent='Performance clips coming soon.';
+  grid.appendChild(empty);
+}
+</script>
+</body>
+</html>
