@@ -151,64 +151,35 @@ main {
 }
 
 /* =========================================
-   EQUIPMENT TABLE
+   SIMPLE EQUIPMENT LISTS
 ========================================= */
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.equipment-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: .95rem;
-}
-
-.equipment-table thead {
-    background: #26161a;
-    color: #ffffff;
-}
-
-.equipment-table th {
-    text-align: left;
-    padding: 15px 18px;
-    font-size: .76rem;
-    font-weight: 800;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-}
-
-.equipment-table td {
+.equipment-section { margin-bottom: 42px; }
+.equipment-list { list-style: none; padding: 0; margin: 0; }
+.equipment-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
     padding: 14px 18px;
     border-bottom: 1px solid var(--line);
-    vertical-align: top;
+    font-size: .97rem;
 }
-
-.equipment-table tbody tr:nth-child(even) {
-    background: #faf8f5;
-}
-
-.equipment-table tbody tr:hover {
-    background: #f4f1eb;
-}
-
-.equipment-table .category-row td {
+.equipment-list li:nth-child(even) { background: #faf8f5; }
+.equipment-list .equipment-name { font-weight: 700; }
+.equipment-list .equipment-detail { color: var(--muted); font-size: .86rem; text-align: right; }
+.equipment-group {
+    margin: 22px 0 4px;
+    padding: 10px 18px;
     background: #eee9e4;
     color: #4a3036;
     font-size: .78rem;
     font-weight: 800;
     letter-spacing: .1em;
     text-transform: uppercase;
-    padding: 12px 18px;
 }
-
-.equipment-table .qty {
-    width: 110px;
-    text-align: center;
-}
-
-.equipment-table .item {
-    font-weight: 700;
+@media (max-width: 560px) {
+    .equipment-list li { padding: 12px 10px; }
+    .equipment-list .equipment-detail { max-width: 38%; }
 }
 
 /* =========================================
@@ -271,43 +242,9 @@ footer {
         font-size: 2.5rem;
     }
 
-    .equipment-table {
-        font-size: .85rem;
-    }
 
-    .equipment-table th,
-    .equipment-table td {
-        padding: 12px 10px;
-    }
-
-    .equipment-table .qty {
-        width: 65px;
-    }
 }
 
-
-/* =========================================
-   STAGE DIAGRAM
-========================================= */
-.stage-diagram {
-    margin-top: 55px;
-    margin-bottom: 50px;
-}
-
-.stage-diagram img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-}
-
-@media (max-width: 560px) {
-    .stage-diagram {
-        margin-top: 35px;
-        margin-bottom: 35px;
-    }
-}
 
 </style>
 </head>
@@ -345,175 +282,49 @@ footer {
     <h1>Stage Requirements<span>.</span></h1>
 
     <p>
-        Equipment and technical requirements for SAJA Project
-        live performances.
+        A simple overview of the equipment we bring and what we need
+        the venue to provide for live performances.
     </p>
 
 </section>
 
 <!-- =========================================
-     EQUIPMENT LIST
+     WHAT WE BRING
 ========================================= -->
-<section aria-label="Stage equipment">
-
-    <div class="section-heading">
-        <h2>Equipment List</h2>
-    </div>
-
-    <div class="table-wrapper">
-
-        <table class="equipment-table">
-
-            <thead>
-                <tr>
-                    <th>Equipment</th>
-                    <th>Category</th>
-                    <th class="qty">Quantity</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                <!-- INSTRUMENTS -->
-                <tr class="category-row">
-                    <td colspan="3">Instruments</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Maton Guitar</td>
-                    <td>Acoustic Guitar</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <!-- AMPLIFICATION -->
-                <tr class="category-row">
-                    <td colspan="3">Amplification</td>
-                </tr>
-
-                <tr>
-                    <td class="item">AER Alpha</td>
-                    <td>Acoustic Guitar Amplifier</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <!-- PEDALS -->
-                <tr class="category-row">
-                    <td colspan="3">Guitar Pedals & Effects</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Strymon Timeline</td>
-                    <td>Delay</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Strymon Cloudburst</td>
-                    <td>Reverb</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Meris Mercury7</td>
-                    <td>Reverb</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Chase Bliss MOOD MKII</td>
-                    <td>Granular / Micro-Looping Effects</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Chase Bliss Blooper</td>
-                    <td>Looping / Effects</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Boss GT-1000CORE</td>
-                    <td>Multi-Effects Processor</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Source Audio EQ2</td>
-                    <td>Equaliser</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Morningstar MC8 Pro</td>
-                    <td>MIDI Foot Controller</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <!-- ELECTRONICS -->
-                <tr class="category-row">
-                    <td colspan="3">Electronic Instruments & Looping</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Elektron Octatrack MKII</td>
-                    <td>Performance Sampler / Sequencer</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Elektron Digitakt</td>
-                    <td>Sampler / Drum Machine</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <tr>
-                    <td class="item">RC 505 Loop Station</td>
-                    <td>Vocal / Live Looping</td>
-                    <td class="qty">1</td>
-                </tr>
-
-                <!-- MONITORING AND MICROPHONES -->
-                <tr class="category-row">
-                    <td colspan="3">Monitoring & Microphones</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Foldback Monitors</td>
-                    <td>Stage Monitoring</td>
-                    <td class="qty">2</td>
-                </tr>
-
-                <tr>
-                    <td class="item">Shure SM57</td>
-                    <td>Dynamic Microphone</td>
-                    <td class="qty">1</td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
+<section class="equipment-section" aria-labelledby="bring-heading">
+    <div class="section-heading"><h2 id="bring-heading">What We Bring</h2></div>
+    <h3 class="equipment-group">Instruments &amp; Amplification</h3>
+    <ul class="equipment-list">
+        <li><span class="equipment-name">Maton Guitar</span><span class="equipment-detail">Acoustic guitar</span></li>
+        <li><span class="equipment-name">AER Alpha</span><span class="equipment-detail">Acoustic guitar amplifier</span></li>
+    </ul>
+    <h3 class="equipment-group">Guitar Pedals &amp; Effects</h3>
+    <ul class="equipment-list">
+        <li><span class="equipment-name">6 × Effects Pedals</span><span class="equipment-detail">9V DC, 500mA per pedal</span></li>
+        <li><span class="equipment-name">Boss GT-1000CORE</span><span class="equipment-detail">Multi-effects processor</span></li>
+    </ul>
+    <h3 class="equipment-group">Electronic Instruments &amp; Looping</h3>
+    <ul class="equipment-list">
+        <li><span class="equipment-name">Elektron Octatrack MKII</span><span class="equipment-detail">Performance sampler</span></li>
+        <li><span class="equipment-name">Elektron Digitakt</span><span class="equipment-detail">Sampler / drum machine</span></li>
+        <li><span class="equipment-name">Elektron Syntakt</span><span class="equipment-detail">Drum synthesiser / sequencer</span></li>
+        <li><span class="equipment-name">Elektron Digitone II</span><span class="equipment-detail">FM synthesiser / sequencer</span></li>
+        <li><span class="equipment-name">RC-505 Loop Station</span><span class="equipment-detail">Vocal / live looping</span></li>
+    </ul>
 </section>
-
 
 <!-- =========================================
-     STAGE DIAGRAM
+     WHAT WE NEED
 ========================================= -->
-<section class="stage-diagram">
-
-    <div class="section-heading">
-        <h2>Stage Layout</h2>
-    </div>
-
-    <img
-        src="assets/img/stage.png"
-        alt="SAJA Project stage layout showing vocals stage left, guitar stage right, pedalboard, electronic instruments and two foldback monitors"
-        loading="lazy">
-
+<section class="equipment-section" aria-labelledby="need-heading">
+    <div class="section-heading"><h2 id="need-heading">What We Need From the Venue</h2></div>
+    <ul class="equipment-list">
+        <li><span class="equipment-name">Foldback Monitors</span><span class="equipment-detail">2 × stage monitors</span></li>
+        <li><span class="equipment-name">Shure SM57 Beta</span><span class="equipment-detail">1 × microphone</span></li>
+        <li><span class="equipment-name">88-Key MIDI Controller</span><span class="equipment-detail">1 × keyboard controller</span></li>
+        <li><span class="equipment-name">AC Power Outlets</span><span class="equipment-detail">10 × outlets</span></li>
+    </ul>
 </section>
-
 
 <!-- =========================================
      TECHNICAL NOTES
@@ -530,6 +341,11 @@ footer {
     </p>
 
     <p>
+        Our six effects pedals require 9V DC power at 500mA each and use a Rockboard Power Hub.
+        Please confirm that 10 AC outlets are available on stage.
+    </p>
+
+    <p>
         Please contact us to discuss stage layout, audio connections,
         monitoring and any additional technical requirements.
     </p>
@@ -542,8 +358,7 @@ footer {
      FOOTER
 ========================================= -->
 <footer>
-    © SAJA 2026 &nbsp;·&nbsp;
-    Photography by Sabine Mignault
+    © SAJA 2026
 </footer>
 
 </body>
