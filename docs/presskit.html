@@ -368,8 +368,7 @@ main {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-flow: dense;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -378,17 +377,6 @@ main {
     overflow: hidden;
     background: #ddd;
     aspect-ratio: 4/3;
-}
-
-.photo-grid a:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: auto;
-}
-
-.photo-grid a:nth-child(6) {
-    grid-column: span 2;
-    aspect-ratio: 2/1;
 }
 
 .photo-grid img {
@@ -534,16 +522,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .photo-grid a:first-child {
-        grid-column: span 2;
-        grid-row: span 1;
-        aspect-ratio: 4/3;
-    }
-
-    .photo-grid a:nth-child(6) {
-        grid-column: span 2;
-    }
-
     .section-heading span {
         display: none;
     }
@@ -594,8 +572,8 @@ footer {
     </a>
   <nav class="site-nav" aria-label="Main navigation">
     <!-- <a href="live.html" aria-current="page">Live</a> -->
-    <a href="presskit.html">Press Kit</a>
-    <a href="https://bandcamp.com/contact?b=742412910&amp;n=SAJA+Project&amp;email=sally%40abovethemandrake.co.nz" target="_blank" rel="noopener noreferrer">Contact</a>
+      <a href="presskit.html">Press Kit</a>
+      <a href="contact.html" aria-current="page">Contact</a>
   </nav>
 
 </header>
@@ -641,7 +619,7 @@ footer {
     <div class="hero-photo">
 
         <img
-            src="assets/img/bio/ph7.jpeg"
+            src="assets/img/SAJAPohutukawaBioPic2.jpeg"
             alt="SAJA Project press photograph">
 
      
@@ -748,112 +726,64 @@ footer {
 
     <div class="photo-grid">
 
-<!--         <a
-            href="assets/img/bio/ph2.jpeg"
+
+
+        <a
+            href="assets/img/SAJAPohutukawaBioPic1.jpeg"
             target="_blank"
             rel="noopener noreferrer">
 
             <img
-                src="assets/img/bio/ph2.jpeg"
+                src="assets/img/SAJAPohutukawaBioPic1.jpeg"
+                alt="SAJA Project press photograph 1"
+                loading="lazy">
+
+        </a>
+
+
+
+        <a
+            href="assets/img/SAJAPohutukawaBioPic2.jpeg"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <img
+                src="assets/img/SAJAPohutukawaBioPic2.jpeg"
                 alt="SAJA Project press photograph 2"
                 loading="lazy">
 
-        </a> -->
+        </a>
 
-<!--         <a
-            href="assets/img/bio/ph3.jpeg"
+        <a
+            href="assets/img/SAJAPohutukawaBioPic3.jpeg"
             target="_blank"
             rel="noopener noreferrer">
 
             <img
-                src="assets/img/bio/ph3.jpeg"
+                src="assets/img/SAJAPohutukawaBioPic3.jpeg"
                 alt="SAJA Project press photograph 3"
                 loading="lazy">
 
-        </a> -->
+        </a>
 
-<!--         <a
-            href="assets/img/bio/ph4.jpeg"
+        <a
+            href="assets/img/SAJAGraniteBioPic1BnW.jpeg"
             target="_blank"
             rel="noopener noreferrer">
 
             <img
-                src="assets/img/bio/ph4.jpeg"
+                src="assets/img/SAJAGraniteBioPic1BnW.jpeg"
                 alt="SAJA Project press photograph 4"
                 loading="lazy">
 
-        </a> -->
-
-<!--         <a
-            href="assets/img/bio/ph5.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph5.jpeg"
-                alt="SAJA Project press photograph 5"
-                loading="lazy">
-
-        </a> -->
-
-        <a
-            href="assets/img/bio/ph6.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph6.jpeg"
-                alt="SAJA Project press photograph 6"
-                loading="lazy">
-
         </a>
 
-<!--         <a
-            href="assets/img/bio/ph7.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph7.jpeg"
-                alt="SAJA Project press photograph 7"
-                loading="lazy">
-
-        </a> -->
-
-        <a
-            href="assets/img/bio/ph8.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph8.jpeg"
-                alt="SAJA Project press photograph 8"
-                loading="lazy">
-
+        <a href="assets/img/SAJAStudioBioPic2BnW.jpeg" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/SAJAStudioBioPic2BnW.jpeg" alt="SAJA Project press photograph 5" loading="lazy">
         </a>
 
-        <a
-            href="assets/img/bio/ph9.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph9.jpeg"
-                alt="SAJA Project press photograph 9"
-                loading="lazy">
-
-        </a>
-
-        <a
-            href="assets/img/bio/ph10.jpeg"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            <img
-                src="assets/img/bio/ph10.jpeg"
-                alt="SAJA Project press photograph 10"
-                loading="lazy">
-
+        <a href="assets/img/SAJAStudioBioPic3BnW.jpeg" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/SAJAStudioBioPic3BnW.jpeg" alt="SAJA Project press photograph 6" loading="lazy">
         </a>
 
     </div>
